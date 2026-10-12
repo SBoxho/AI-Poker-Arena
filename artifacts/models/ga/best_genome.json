@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "genes": {
+    "pf_play_btn": 0.40371804190198773,
+    "pf_open_raise": 0.4179489702388651,
+    "pf_bb_raise": 0.4548408565903232,
+    "pf_defend": 0.4039261036318468,
+    "pf_3bet": 0.630884254145261,
+    "pf_shove": 0.9182665041520348,
+    "value_bet": 0.5896253663166553,
+    "value_raise": 0.8509137581042515,
+    "shove_threshold": 0.932794878962248,
+    "call_margin": 0.03832648904630863,
+    "fold_big_bet": 0.22932945509807554,
+    "deep_stack_caution": 0.055181005050031554,
+    "position_bonus": -0.0047268592743549415,
+    "bluff_freq": 0.024213817899795848,
+    "semi_bluff_freq": 0.4623664944477683,
+    "big_bet_prob": 0.3292788156946987,
+    "adapt_fold": 0.6270711317116979,
+    "adapt_aggression": -0.18720421253059272
+  },
+  "final_selection_fitness_bb100": 100.72288136166536,
+  "strategy": [
+    "Button, first to act: fold below equity 0.40, limp up to 0.42, raise at or above 0.42.",
+    "Big blind vs a limp: raise with equity >= 0.45, otherwise check.",
+    "Preflop vs a raise: call with equity >= 0.40 (and pot odds +0.04), 3-bet at >= 0.63, jam all-in at >= 0.92.",
+    "Postflop (adjusted equity): bet for value at >= 0.59; facing a bet, raise at >= 0.85, go all-in at >= 0.93.",
+    "Facing a bet: call when equity >= pot odds +0.04 + 0.23 per pot-size of the bet.",
+    "Adjusted equity = equity -0.00 in position (+0.00 out of position) minus up to 0.06 for deep stacks.",
+    "Bluffs 2% of weak hands when checked to; semi-bluffs 46% of flush/straight draws.",
+    "Bet sizing: pot-size 33% of the time, otherwise half pot.",
+    "Adaptation: bluff frequency +0.63 per +1.0 opponent fold-to-bet above neutral; call margin -0.19 per +1.0 opponent aggression above neutral."
+  ]
+}

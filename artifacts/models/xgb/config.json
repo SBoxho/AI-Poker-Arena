@@ -1,0 +1,98 @@
+{
+  "script_configuration": {
+    "RANDOM_SEED": 42,
+    "STARTING_STACK": 1000,
+    "SMALL_BLIND": 5,
+    "BIG_BLIND": 10,
+    "DATASET_NAME": "teacher_bc_v2",
+    "DATASETS_DIR": "artifacts/datasets",
+    "MAX_TRAIN_ROWS": 150000,
+    "CLASS_WEIGHT_POWER": 0.5,
+    "XGB_N_ESTIMATORS": 1500,
+    "XGB_MAX_DEPTH": 8,
+    "XGB_LEARNING_RATE": 0.1,
+    "XGB_SUBSAMPLE": 1.0,
+    "XGB_COLSAMPLE_BYTREE": 1.0,
+    "XGB_MIN_CHILD_WEIGHT": 1.0,
+    "XGB_REG_LAMBDA": 1.0,
+    "XGB_MAX_BIN": 1024,
+    "XGB_EARLY_STOPPING_ROUNDS": 40,
+    "N_JOBS": 10,
+    "DAGGER_ROUNDS": 3,
+    "DAGGER_HANDS_PER_ROUND": 10000,
+    "DAGGER_TEACHER_BETA": 0.5,
+    "DAGGER_N_WORKERS": 10,
+    "VALIDATION_OPPONENTS": [
+      "teacher",
+      "call_station",
+      "maniac",
+      "random"
+    ],
+    "VALIDATION_PAIRS": 1000,
+    "VALIDATION_ON_POLICY_HANDS": 4000,
+    "EVAL_N_WORKERS": 10,
+    "SHAP_SAMPLE_ROWS": 5000,
+    "TUNING_GRID": {
+      "max_bin": [
+        256,
+        512,
+        2048
+      ],
+      "max_depth": [
+        6,
+        10
+      ],
+      "learning_rate": [
+        0.05,
+        0.2
+      ],
+      "min_child_weight": [
+        5.0
+      ],
+      "reg_lambda": [
+        0.1,
+        10.0
+      ],
+      "subsample": [
+        0.8
+      ],
+      "colsample_bytree": [
+        0.8
+      ],
+      "class_weight_power": [
+        0.0,
+        1.0
+      ],
+      "max_train_rows": [
+        null
+      ]
+    },
+    "OUTPUT_DIR": "artifacts/models/xgb",
+    "WORK_DIR": "artifacts/tmp/xgb_rounds",
+    "FIGURES_DIR": "artifacts/figures",
+    "SAVE_FIGURES": true
+  },
+  "booster_params": {
+    "objective": "multi:softprob",
+    "num_class": 5,
+    "tree_method": "hist",
+    "eval_metric": "mlogloss",
+    "max_depth": 8,
+    "eta": 0.1,
+    "subsample": 1.0,
+    "colsample_bytree": 1.0,
+    "min_child_weight": 1.0,
+    "reg_lambda": 1.0,
+    "max_bin": 1024,
+    "nthread": 10,
+    "seed": 42,
+    "verbosity": 0
+  },
+  "n_estimators_cap": 1500,
+  "early_stopping_rounds": 40,
+  "game": {
+    "starting_stack": 1000,
+    "small_blind": 5,
+    "big_blind": 10
+  }
+}

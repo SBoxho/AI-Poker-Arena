@@ -1,0 +1,679 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-11T13:05:43+00:00",
+  "gene_names": [
+    "pf_play_btn",
+    "pf_open_raise",
+    "pf_bb_raise",
+    "pf_defend",
+    "pf_3bet",
+    "pf_shove",
+    "value_bet",
+    "value_raise",
+    "shove_threshold",
+    "call_margin",
+    "fold_big_bet",
+    "deep_stack_caution",
+    "position_bonus",
+    "bluff_freq",
+    "semi_bluff_freq",
+    "big_bet_prob",
+    "adapt_fold",
+    "adapt_aggression"
+  ],
+  "gene_specs": [
+    {
+      "name": "pf_play_btn",
+      "low": 0.33,
+      "high": 0.65,
+      "default": 0.42,
+      "group": "preflop",
+      "description": "Button (first to act): minimum equity to enter the pot; weaker hands fold."
+    },
+    {
+      "name": "pf_open_raise",
+      "low": 0.38,
+      "high": 0.8,
+      "default": 0.5,
+      "group": "preflop",
+      "description": "Button: equity at/above which it raises first-in; between pf_play_btn and this it limps."
+    },
+    {
+      "name": "pf_bb_raise",
+      "low": 0.4,
+      "high": 0.85,
+      "default": 0.58,
+      "group": "preflop",
+      "description": "Big blind after a limp: raise (isolate) with at least this equity, otherwise check."
+    },
+    {
+      "name": "pf_defend",
+      "low": 0.33,
+      "high": 0.8,
+      "default": 0.5,
+      "group": "preflop",
+      "description": "Minimum equity to call a preflop raise (the pot-odds requirement must be met as well)."
+    },
+    {
+      "name": "pf_3bet",
+      "low": 0.5,
+      "high": 0.95,
+      "default": 0.68,
+      "group": "preflop",
+      "description": "Equity at/above which the agent re-raises (3-bets) a raise."
+    },
+    {
+      "name": "pf_shove",
+      "low": 0.62,
+      "high": 0.95,
+      "default": 0.8,
+      "group": "preflop",
+      "description": "Equity at/above which the agent jams all-in over a preflop raise (4-bet/shove)."
+    },
+    {
+      "name": "value_bet",
+      "low": 0.5,
+      "high": 0.92,
+      "default": 0.62,
+      "group": "postflop",
+      "description": "Bet for value when checked to with adjusted equity at/above this."
+    },
+    {
+      "name": "value_raise",
+      "low": 0.55,
+      "high": 0.98,
+      "default": 0.78,
+      "group": "postflop",
+      "description": "Raise a bet with adjusted equity at/above this."
+    },
+    {
+      "name": "shove_threshold",
+      "low": 0.7,
+      "high": 1.0,
+      "default": 0.92,
+      "group": "postflop",
+      "description": "Go all-in postflop with adjusted equity at/above this (1.0 = practically never)."
+    },
+    {
+      "name": "call_margin",
+      "low": -0.1,
+      "high": 0.2,
+      "default": 0.03,
+      "group": "defence",
+      "description": "Equity required to call = pot odds + this margin (negative = calls light, positive = tight)."
+    },
+    {
+      "name": "fold_big_bet",
+      "low": 0.0,
+      "high": 0.3,
+      "default": 0.08,
+      "group": "defence",
+      "description": "Extra equity required per pot-size of the bet faced: big bets show a stronger range than 'random hand' equity assumes."
+    },
+    {
+      "name": "deep_stack_caution",
+      "low": 0.0,
+      "high": 0.15,
+      "default": 0.04,
+      "group": "defence",
+      "description": "Equity subtracted when stacks are deep relative to the pot (scaled by SPR up to 8): more chips behind = more to lose."
+    },
+    {
+      "name": "position_bonus",
+      "low": -0.05,
+      "high": 0.12,
+      "default": 0.03,
+      "group": "defence",
+      "description": "Equity added when in position (button postflop) and subtracted out of position."
+    },
+    {
+      "name": "bluff_freq",
+      "low": 0.0,
+      "high": 0.7,
+      "default": 0.12,
+      "group": "aggression",
+      "description": "Probability of betting a weak hand when checked to (pure bluff)."
+    },
+    {
+      "name": "semi_bluff_freq",
+      "low": 0.0,
+      "high": 1.0,
+      "default": 0.5,
+      "group": "aggression",
+      "description": "Probability of betting/raising a flush or open-ended straight draw instead of calling."
+    },
+    {
+      "name": "big_bet_prob",
+      "low": 0.0,
+      "high": 1.0,
+      "default": 0.35,
+      "group": "aggression",
+      "description": "Probability that a bet or raise is pot-sized instead of half-pot."
+    },
+    {
+      "name": "adapt_fold",
+      "low": 0.0,
+      "high": 1.0,
+      "default": 0.3,
+      "group": "adaptation",
+      "description": "Bluff/semi-bluff frequency added per +1.0 of opponent fold-to-bet above neutral (bluff more against folders, less against callers)."
+    },
+    {
+      "name": "adapt_aggression",
+      "low": -0.4,
+      "high": 0.4,
+      "default": 0.0,
+      "group": "adaptation",
+      "description": "Call margin added per +1.0 of opponent aggression above neutral (>0 tightens against aggressive opponents, <0 calls them down lighter)."
+    }
+  ],
+  "equity_samples": 120,
+  "game_config": {
+    "starting_stack": 1000,
+    "small_blind": 5,
+    "big_blind": 10
+  },
+  "training": {
+    "generations": 40,
+    "population_size": 40,
+    "hands_per_evaluation": 3000,
+    "training_opponents": [
+      "random",
+      "call_station",
+      "maniac",
+      "nit",
+      "tag",
+      "lag",
+      "passive",
+      "maniac-ish"
+    ],
+    "validation_opponents": [
+      "random",
+      "call_station",
+      "maniac",
+      "balanced",
+      "bluffer",
+      "teacher"
+    ],
+    "final_selection_fitness_bb100": 100.72288136166536,
+    "last_generation_validation": {
+      "fitness": 130.48881155606125,
+      "raw_mean_bb100": 177.33333333333334,
+      "per_opponent": {
+        "random": 60.166666666666664,
+        "call_station": 470.0,
+        "maniac": 306.6666666666667,
+        "balanced": 122.33333333333333,
+        "bluffer": 6.0,
+        "teacher": 98.83333333333333
+      }
+    },
+    "reference_validation_fitness": {
+      "tag": 150.55974136703676,
+      "lag": 34.172671316654096,
+      "nit": 55.202550628522715
+    },
+    "population_validation_fitness": {
+      "initial": {
+        "mean": 73.2462868577314,
+        "median": 72.9421463012047,
+        "max": 158.04910550258833,
+        "genomes": [
+          150.55974136703676,
+          34.172671316654096,
+          55.202550628522715,
+          72.24893327469273,
+          36.79476168325211,
+          54.33992631682878,
+          102.25656111527142,
+          -6.344851211890462,
+          81.50203501601924,
+          76.1899604229544,
+          48.09970643246976,
+          73.63535932771667,
+          60.749633090529166,
+          158.04910550258833,
+          -31.987185216074764,
+          41.464094027332926,
+          109.89241625972129,
+          118.58164719735123,
+          117.27748587594907,
+          112.45388505072118,
+          40.95469070107302,
+          95.13320514343535,
+          103.10042698872651,
+          59.25282829175216,
+          42.219648795525536,
+          15.908855659645454,
+          88.57478938726486,
+          95.61353526785142,
+          46.75049933154214,
+          133.89229939781885,
+          29.50846466128621,
+          97.61725501818341,
+          8.41682550016313,
+          95.98888936139576,
+          85.88341423641732,
+          132.44747242435562,
+          55.59210035883681,
+          62.8629295240549,
+          114.03168774871001,
+          60.96321903357127
+        ]
+      },
+      "final": {
+        "mean": 134.48077119545331,
+        "median": 138.67882776592475,
+        "max": 191.10948480430247,
+        "genomes": [
+          123.50758988257137,
+          137.11618513574905,
+          167.37675447491947,
+          163.01296903762733,
+          140.57528947921264,
+          126.43721735179103,
+          95.17078008658193,
+          113.03112191381338,
+          77.5406194909631,
+          113.02416092058799,
+          115.71929423737608,
+          124.87769605807932,
+          140.02087575985524,
+          148.234312766025,
+          191.10948480430247,
+          151.19607006509844,
+          140.10269061572419,
+          137.33677977199426,
+          145.3614234046894,
+          168.92269866984518,
+          141.6618354597468,
+          140.27067701596778,
+          130.48881155606125,
+          123.19034545960936,
+          156.44787702264043,
+          135.01811587643257,
+          134.5610898699348,
+          124.89353557819025,
+          143.51730901904406,
+          127.58567906301447,
+          119.62967522549998,
+          168.48420720819536,
+          136.4153106030395,
+          171.79877611253414,
+          142.76101566769916,
+          156.56539571372537,
+          143.60744621526604,
+          159.45081996927507,
+          70.81594325489449,
+          32.392968000554326
+        ]
+      }
+    },
+    "fitness": {
+      "worst_case_weight": 0.25,
+      "profit_saturation_bb100": 300.0,
+      "max_all_in_share": 0.25,
+      "min_vpip": 0.15,
+      "degeneracy_penalty_bb100": 200.0
+    }
+  },
+  "final_evaluation": {
+    "unit": "BB/100",
+    "confidence": 0.95,
+    "method": "Student-t interval on duplicate-pair sums; identical deals for every agent",
+    "pairs_per_opponent": 1500,
+    "hands_per_opponent": 3000,
+    "opponents": {
+      "random": {
+        "in_training_pool": true
+      },
+      "call_station": {
+        "in_training_pool": true
+      },
+      "maniac": {
+        "in_training_pool": true
+      },
+      "teacher": {
+        "in_training_pool": false
+      },
+      "balanced": {
+        "in_training_pool": false
+      },
+      "bluffer": {
+        "in_training_pool": false
+      },
+      "nit": {
+        "in_training_pool": true
+      },
+      "tag": {
+        "in_training_pool": true
+      },
+      "lag": {
+        "in_training_pool": true
+      }
+    },
+    "skipped_opponents": {},
+    "results": {
+      "evolved": {
+        "random": {
+          "bb_per_100": 196.53333333333333,
+          "se": 38.04628469524982,
+          "ci_low": 121.90372688725746,
+          "ci_high": 271.1629397794092,
+          "n_pairs": 1500
+        },
+        "call_station": {
+          "bb_per_100": 595.0833333333334,
+          "se": 32.061598932697,
+          "ci_low": 532.1929741420233,
+          "ci_high": 657.9736925246434,
+          "n_pairs": 1500
+        },
+        "maniac": {
+          "bb_per_100": 925.4333333333333,
+          "se": 67.94076223394981,
+          "ci_low": 792.1642799216833,
+          "ci_high": 1058.7023867449832,
+          "n_pairs": 1500
+        },
+        "teacher": {
+          "bb_per_100": -105.95,
+          "se": 24.81531759244072,
+          "ci_low": -154.62643189321602,
+          "ci_high": -57.273568106784,
+          "n_pairs": 1500
+        },
+        "balanced": {
+          "bb_per_100": 92.96666666666667,
+          "se": 28.67972251577143,
+          "ci_low": 36.71001975675401,
+          "ci_high": 149.22331357657933,
+          "n_pairs": 1500
+        },
+        "bluffer": {
+          "bb_per_100": 98.55,
+          "se": 27.86902897015577,
+          "ci_low": 43.883567239571015,
+          "ci_high": 153.21643276042897,
+          "n_pairs": 1500
+        },
+        "nit": {
+          "bb_per_100": 10.333333333333334,
+          "se": 12.514631567147054,
+          "ci_low": -14.214714817881552,
+          "ci_high": 34.88138148454822,
+          "n_pairs": 1500
+        },
+        "tag": {
+          "bb_per_100": 75.0,
+          "se": 24.210263712396724,
+          "ci_low": 27.510410220489582,
+          "ci_high": 122.48958977951042,
+          "n_pairs": 1500
+        },
+        "lag": {
+          "bb_per_100": 294.28333333333336,
+          "se": 37.75735414029871,
+          "ci_low": 220.22047798474216,
+          "ci_high": 368.34618868192456,
+          "n_pairs": 1500
+        },
+        "style": {
+          "vpip": 0.636962962962963,
+          "pfr": 0.493,
+          "aggression_factor": 2.025166877142342,
+          "all_in_share": 0.023998962907747404,
+          "fold_share": 0.18808640274829447,
+          "showdown_rate": 0.23696296296296296,
+          "showdown_win_rate": 0.5415754923413567,
+          "hands": 27000.0
+        }
+      },
+      "tag": {
+        "random": {
+          "bb_per_100": 488.93333333333334,
+          "se": 52.12925168017766,
+          "ci_low": 386.67931383098164,
+          "ci_high": 591.187352835685,
+          "n_pairs": 1500
+        },
+        "call_station": {
+          "bb_per_100": 623.1333333333333,
+          "se": 37.136952266315134,
+          "ci_low": 550.2874259223572,
+          "ci_high": 695.9792407443094,
+          "n_pairs": 1500
+        },
+        "maniac": {
+          "bb_per_100": 1018.7833333333333,
+          "se": 74.17859859470563,
+          "ci_low": 873.278465665256,
+          "ci_high": 1164.2882010014105,
+          "n_pairs": 1500
+        },
+        "teacher": {
+          "bb_per_100": -119.11666666666666,
+          "se": 27.541324436892932,
+          "ci_low": -173.1402913173447,
+          "ci_high": -65.09304201598864,
+          "n_pairs": 1500
+        },
+        "balanced": {
+          "bb_per_100": -21.766666666666666,
+          "se": 24.79267439645049,
+          "ci_low": -70.39868284836265,
+          "ci_high": 26.86534951502933,
+          "n_pairs": 1500
+        },
+        "bluffer": {
+          "bb_per_100": 33.71666666666667,
+          "se": 24.531776369626826,
+          "ci_low": -14.40358556171909,
+          "ci_high": 81.83691889505243,
+          "n_pairs": 1500
+        },
+        "nit": {
+          "bb_per_100": -40.833333333333336,
+          "se": 17.640493049620982,
+          "ci_low": -75.43600385302062,
+          "ci_high": -6.230662813646042,
+          "n_pairs": 1500
+        },
+        "tag": {
+          "bb_per_100": 14.433333333333334,
+          "se": 17.87729055545971,
+          "ci_low": -20.633826815491464,
+          "ci_high": 49.500493482158134,
+          "n_pairs": 1500
+        },
+        "lag": {
+          "bb_per_100": 196.8,
+          "se": 40.181679025778216,
+          "ci_low": 117.98171548007234,
+          "ci_high": 275.61828451992767,
+          "n_pairs": 1500
+        },
+        "style": {
+          "vpip": 0.5266666666666666,
+          "pfr": 0.2809259259259259,
+          "aggression_factor": 1.259189901511999,
+          "all_in_share": 0.034440772308227514,
+          "fold_share": 0.19246034883537058,
+          "showdown_rate": 0.25992592592592595,
+          "showdown_win_rate": 0.5290681105728128,
+          "hands": 27000.0
+        }
+      },
+      "lag": {
+        "random": {
+          "bb_per_100": 668.55,
+          "se": 81.06296600088186,
+          "ci_low": 509.5411165188551,
+          "ci_high": 827.5588834811448,
+          "n_pairs": 1500
+        },
+        "call_station": {
+          "bb_per_100": 1407.8166666666666,
+          "se": 53.11238760364153,
+          "ci_low": 1303.6341790461056,
+          "ci_high": 1511.9991542872276,
+          "n_pairs": 1500
+        },
+        "maniac": {
+          "bb_per_100": 1221.45,
+          "se": 81.22819707808321,
+          "ci_low": 1062.117007861125,
+          "ci_high": 1380.782992138875,
+          "n_pairs": 1500
+        },
+        "teacher": {
+          "bb_per_100": -414.46666666666664,
+          "se": 43.91668417991996,
+          "ci_low": -500.611342369344,
+          "ci_high": -328.32199096398926,
+          "n_pairs": 1500
+        },
+        "balanced": {
+          "bb_per_100": -303.93333333333334,
+          "se": 43.49715723720043,
+          "ci_low": -389.2550868800244,
+          "ci_high": -218.61157978664227,
+          "n_pairs": 1500
+        },
+        "bluffer": {
+          "bb_per_100": -232.33333333333334,
+          "se": 44.13302325644326,
+          "ci_low": -318.9023684779159,
+          "ci_high": -145.7642981887508,
+          "n_pairs": 1500
+        },
+        "nit": {
+          "bb_per_100": -108.15,
+          "se": 25.82013435077223,
+          "ci_low": -158.7974280055924,
+          "ci_high": -57.50257199440763,
+          "n_pairs": 1500
+        },
+        "tag": {
+          "bb_per_100": -213.2,
+          "se": 39.995808875383126,
+          "ci_low": -291.6536913333611,
+          "ci_high": -134.74630866663887,
+          "n_pairs": 1500
+        },
+        "lag": {
+          "bb_per_100": -1.7666666666666666,
+          "se": 33.32165340176447,
+          "ci_low": -67.12868294303411,
+          "ci_high": 63.595349609700776,
+          "n_pairs": 1500
+        },
+        "style": {
+          "vpip": 0.746037037037037,
+          "pfr": 0.5372222222222223,
+          "aggression_factor": 1.903063583815029,
+          "all_in_share": 0.07419940099066928,
+          "fold_share": 0.08776350650846676,
+          "showdown_rate": 0.3461851851851852,
+          "showdown_win_rate": 0.4556542206055419,
+          "hands": 27000.0
+        }
+      },
+      "nit": {
+        "random": {
+          "bb_per_100": 78.1,
+          "se": 25.42589711618402,
+          "ci_low": 28.22588717877779,
+          "ci_high": 127.9741128212222,
+          "n_pairs": 1500
+        },
+        "call_station": {
+          "bb_per_100": 84.66666666666667,
+          "se": 8.834450359638648,
+          "ci_low": 67.33746990571349,
+          "ci_high": 101.99586342761985,
+          "n_pairs": 1500
+        },
+        "maniac": {
+          "bb_per_100": 354.25,
+          "se": 42.75058128025707,
+          "ci_low": 270.3926908871104,
+          "ci_high": 438.1073091128896,
+          "n_pairs": 1500
+        },
+        "teacher": {
+          "bb_per_100": -63.833333333333336,
+          "se": 12.994036680419752,
+          "ci_low": -89.32175753488684,
+          "ci_high": -38.34490913177983,
+          "n_pairs": 1500
+        },
+        "balanced": {
+          "bb_per_100": 77.91666666666667,
+          "se": 21.068129313069186,
+          "ci_low": 36.59052373882135,
+          "ci_high": 119.242809594512,
+          "n_pairs": 1500
+        },
+        "bluffer": {
+          "bb_per_100": 42.93333333333333,
+          "se": 19.977556824244687,
+          "ci_low": 3.746400483260757,
+          "ci_high": 82.1202661834059,
+          "n_pairs": 1500
+        },
+        "nit": {
+          "bb_per_100": 16.833333333333332,
+          "se": 6.490528099241366,
+          "ci_low": 4.101852150518736,
+          "ci_high": 29.564814516147926,
+          "n_pairs": 1500
+        },
+        "tag": {
+          "bb_per_100": 29.866666666666667,
+          "se": 18.043346780928772,
+          "ci_low": -5.526220707666283,
+          "ci_high": 65.25955404099962,
+          "n_pairs": 1500
+        },
+        "lag": {
+          "bb_per_100": 81.81666666666666,
+          "se": 23.61061075960925,
+          "ci_low": 35.50332482382649,
+          "ci_high": 128.13000850950684,
+          "n_pairs": 1500
+        },
+        "style": {
+          "vpip": 0.17525925925925925,
+          "pfr": 0.056074074074074075,
+          "aggression_factor": 0.8104156398882865,
+          "all_in_share": 0.009423624808240192,
+          "fold_share": 0.4199211045364892,
+          "showdown_rate": 0.14092592592592593,
+          "showdown_win_rate": 0.5986859395532195,
+          "hands": 27000.0
+        }
+      }
+    }
+  },
+  "timings_seconds": {
+    "evolution": 1391.9711131000076,
+    "final_evaluation": 51.19401509995805,
+    "total": 1443.1651281999657,
+    "final_evaluation_refresh": 21.37353109999094
+  },
+  "library_versions": {
+    "python": "3.13.2",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "pokerkit": "0.7.6",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "poker-arena": "0.1.0"
+  },
+  "final_evaluation_refreshed_at": "2026-10-11T18:44:11+00:00",
+  "evaluation_protocol_note": "Training fitness, per-generation validation and the stored population/initial-population validation scores used the legacy single-table duplicate protocol (the two hands of a deal shared agents and opponent trackers; between identical adaptive agents this favours the second mover by roughly +10 to +13 BB/100). 'final_evaluation' was refreshed with `scripts/train_ga.py --evaluate-only` under the corrected two-table protocol (independent tables per deal). The genome was not retrained; the held-out numbers agree with the legacy-era evaluation within noise (see Notebook 3, section 3.5, and docs/METHODOLOGY.md, section 5). Retraining under the corrected protocol is future work.",
+  "training_duplicate_protocol": "single_table",
+  "final_evaluation_duplicate_protocol": "two_table"
+}

@@ -1,0 +1,1529 @@
+{
+  "artifact_schema_version": 1,
+  "model_kind": "xgboost",
+  "architecture": "XGBoost",
+  "model_file": "model.ubj",
+  "model_fingerprint": "08cee062881516f1",
+  "feature_schema_hash": "9dfcba73264b60de",
+  "feature_schema_version": 1,
+  "feature_names": [
+    "equity",
+    "preflop_percentile",
+    "made_hand_category",
+    "hole_high_rank",
+    "hole_low_rank",
+    "is_pair",
+    "is_suited",
+    "hole_gap",
+    "overcards",
+    "pair_with_board",
+    "flush_draw",
+    "straight_outs",
+    "street",
+    "board_paired",
+    "board_max_suit_count",
+    "board_straightness",
+    "board_high_rank",
+    "is_button",
+    "pot_bb",
+    "my_stack_bb",
+    "opp_stack_bb",
+    "effective_stack_bb",
+    "spr",
+    "my_commit_frac",
+    "opp_commit_frac",
+    "facing_bet",
+    "facing_all_in",
+    "can_raise",
+    "to_call_bb",
+    "pot_odds",
+    "equity_minus_pot_odds",
+    "bet_fraction_of_pot",
+    "call_stack_fraction",
+    "num_raises_street",
+    "num_raises_hand",
+    "i_raised_this_street",
+    "opp_raised_this_street",
+    "i_have_initiative",
+    "opp_has_initiative",
+    "opp_vpip",
+    "opp_pfr",
+    "opp_aggression",
+    "opp_fold_to_bet",
+    "opp_showdown_rate",
+    "opp_log_hands"
+  ],
+  "class_names": [
+    "fold",
+    "check_call",
+    "raise_small",
+    "raise_pot",
+    "all_in"
+  ],
+  "created_at": "2026-10-11T14:49:52+00:00",
+  "library_versions": {
+    "python": "3.13.2",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "pyarrow": "25.0.1",
+    "pokerkit": "0.7.6",
+    "scikit-learn": "1.9.1",
+    "interpret": "0.7.8",
+    "xgboost": "3.4.1",
+    "shap": "0.53.0"
+  },
+  "game_config": {
+    "starting_stack": 1000,
+    "small_blind": 5,
+    "big_blind": 10
+  },
+  "dataset": {
+    "name": "teacher_bc_v2",
+    "content_sha256": "c14b6d5e8cd0f478f33f5dc97bc955b842c530b749d6a287329c0da2d24b6c65",
+    "rows": 432652,
+    "schema_hash": "9dfcba73264b60de",
+    "train_split_sha256": "8240f002d756b21d30a1d07a0e2296921ccd49e486501a1e01bbacd7e08cd002",
+    "val_split_sha256": "59dc66cab0f4beddf1421db503430ec94263d324aa02243f7563183958b2aae3"
+  },
+  "config": {
+    "script_configuration": {
+      "RANDOM_SEED": 42,
+      "STARTING_STACK": 1000,
+      "SMALL_BLIND": 5,
+      "BIG_BLIND": 10,
+      "DATASET_NAME": "teacher_bc_v2",
+      "DATASETS_DIR": "artifacts/datasets",
+      "MAX_TRAIN_ROWS": 150000,
+      "CLASS_WEIGHT_POWER": 0.5,
+      "XGB_N_ESTIMATORS": 1500,
+      "XGB_MAX_DEPTH": 8,
+      "XGB_LEARNING_RATE": 0.1,
+      "XGB_SUBSAMPLE": 1.0,
+      "XGB_COLSAMPLE_BYTREE": 1.0,
+      "XGB_MIN_CHILD_WEIGHT": 1.0,
+      "XGB_REG_LAMBDA": 1.0,
+      "XGB_MAX_BIN": 1024,
+      "XGB_EARLY_STOPPING_ROUNDS": 40,
+      "N_JOBS": 10,
+      "DAGGER_ROUNDS": 3,
+      "DAGGER_HANDS_PER_ROUND": 10000,
+      "DAGGER_TEACHER_BETA": 0.5,
+      "DAGGER_N_WORKERS": 10,
+      "VALIDATION_OPPONENTS": [
+        "teacher",
+        "call_station",
+        "maniac",
+        "random"
+      ],
+      "VALIDATION_PAIRS": 1000,
+      "VALIDATION_ON_POLICY_HANDS": 4000,
+      "EVAL_N_WORKERS": 10,
+      "SHAP_SAMPLE_ROWS": 5000,
+      "TUNING_GRID": {
+        "max_bin": [
+          256,
+          512,
+          2048
+        ],
+        "max_depth": [
+          6,
+          10
+        ],
+        "learning_rate": [
+          0.05,
+          0.2
+        ],
+        "min_child_weight": [
+          5.0
+        ],
+        "reg_lambda": [
+          0.1,
+          10.0
+        ],
+        "subsample": [
+          0.8
+        ],
+        "colsample_bytree": [
+          0.8
+        ],
+        "class_weight_power": [
+          0.0,
+          1.0
+        ],
+        "max_train_rows": [
+          null
+        ]
+      },
+      "OUTPUT_DIR": "artifacts/models/xgb",
+      "WORK_DIR": "artifacts/tmp/xgb_rounds",
+      "FIGURES_DIR": "artifacts/figures",
+      "SAVE_FIGURES": true
+    },
+    "booster_params": {
+      "objective": "multi:softprob",
+      "num_class": 5,
+      "tree_method": "hist",
+      "eval_metric": "mlogloss",
+      "max_depth": 8,
+      "eta": 0.1,
+      "subsample": 1.0,
+      "colsample_bytree": 1.0,
+      "min_child_weight": 1.0,
+      "reg_lambda": 1.0,
+      "max_bin": 1024,
+      "nthread": 10,
+      "seed": 42,
+      "verbosity": 0
+    },
+    "n_estimators_cap": 1500,
+    "early_stopping_rounds": 40,
+    "game": {
+      "starting_stack": 1000,
+      "small_blind": 5,
+      "big_blind": 10
+    }
+  },
+  "seeds": {
+    "master_seed": 42,
+    "xgboost_seed": 42,
+    "train_subsample": "subsample_by_hand(seed=42, max_rows=150000)",
+    "dagger_collection": "derive_seed(\"dagger\", 42, round, \"train\", ...)",
+    "on_policy_validation": "derive_seed(\"dagger\", \"xgboost_on_policy_validation\", 42, \"val\", ...)",
+    "policy_validation": "derive_seed(\"dataset_val\", \"xgboost_policy_validation\", 42, opponent, ...)",
+    "policy_validation_namespace": "dataset_val",
+    "eval_namespace_used": false
+  },
+  "training_time_s": 45.53770019998774,
+  "n_train_rows": 245525,
+  "n_val_rows": 73777,
+  "n_bc_train_rows": 150000,
+  "dagger_round": 3,
+  "class_weight_power": 0.5,
+  "class_weights": {
+    "fold": 1.3158137832292063,
+    "check_call": 0.6283776863778363,
+    "raise_small": 0.8611551171525339,
+    "raise_pot": 1.4568630209073925,
+    "all_in": 3.7727090178455764
+  },
+  "best_iteration": 380,
+  "n_trees_per_class": 381,
+  "hit_estimator_cap": false,
+  "learning_curve": {
+    "round": [
+      1,
+      11,
+      21,
+      31,
+      41,
+      51,
+      61,
+      71,
+      81,
+      91,
+      101,
+      111,
+      121,
+      131,
+      141,
+      151,
+      161,
+      171,
+      181,
+      191,
+      201,
+      211,
+      221,
+      231,
+      241,
+      251,
+      261,
+      271,
+      281,
+      291,
+      301,
+      311,
+      321,
+      331,
+      341,
+      351,
+      361,
+      371,
+      381,
+      391,
+      401,
+      411,
+      421
+    ],
+    "train_mlogloss": [
+      1.24400218008529,
+      0.40646657852674845,
+      0.16687949455179862,
+      0.07796324196430247,
+      0.04178933971952023,
+      0.02642757929140118,
+      0.01921214967878222,
+      0.01500414720477468,
+      0.01161473839356067,
+      0.00946843190311526,
+      0.00786561386704523,
+      0.0067976561981791,
+      0.00588071088636415,
+      0.00512307066919186,
+      0.00453618793498447,
+      0.00401145075874168,
+      0.00360148715197217,
+      0.00327635421066618,
+      0.00295477695037238,
+      0.00270125672744798,
+      0.00244565571243298,
+      0.00223173659619368,
+      0.00204468530143093,
+      0.00189659817182659,
+      0.0017256749745202,
+      0.001607690097612,
+      0.00148796780532207,
+      0.00139456011603068,
+      0.00130715413892836,
+      0.00121710033384652,
+      0.00114668450371282,
+      0.00108477022626492,
+      0.00102236092924893,
+      0.00096471551534558,
+      0.00091381453369192,
+      0.00086657394729454,
+      0.00082459168833624,
+      0.00077763797205734,
+      0.00073491044319476,
+      0.00069952495451085,
+      0.00066935489001591,
+      0.00063886223602343,
+      0.00060850927318769
+    ],
+    "val_mlogloss": [
+      1.2388261722417198,
+      0.40801111635225484,
+      0.16981746927461758,
+      0.08124025998648392,
+      0.04561918700676158,
+      0.03053351388480855,
+      0.0235122762451396,
+      0.01949238585078442,
+      0.01634280740865405,
+      0.01440722217663,
+      0.01305368079122668,
+      0.01217499399325329,
+      0.01151715725568664,
+      0.0110245236798444,
+      0.01064457780596589,
+      0.0102948749231482,
+      0.01005458005110066,
+      0.00981224810512223,
+      0.00962279021963068,
+      0.00947956277967109,
+      0.00939878535512968,
+      0.00928155820197069,
+      0.00918269728671428,
+      0.00908573205885201,
+      0.00901372417757674,
+      0.00892953935868952,
+      0.00885840445239507,
+      0.0088264525331522,
+      0.00880395188728292,
+      0.00877954809720246,
+      0.00875667654255869,
+      0.00872738561403777,
+      0.00870826105194322,
+      0.00868868716599889,
+      0.00869141672147887,
+      0.00867974103489038,
+      0.00866816053157973,
+      0.00863935061028241,
+      0.00863650539181185,
+      0.00864522421420799,
+      0.00864753775357316,
+      0.00866016361426797,
+      0.00865642653760305
+    ]
+  },
+  "imitation": {
+    "n": 73777,
+    "accuracy": 0.9976686501213116,
+    "masked_accuracy": 0.9977228675603508,
+    "masked_macro_f1": 0.996351825253719,
+    "masked_balanced_accuracy": 0.9957385880107725,
+    "log_loss": 0.006337393324806693,
+    "illegal_mass": 9.105819422858328e-05,
+    "per_class": {
+      "fold": {
+        "precision": 0.9908118486012069,
+        "recall": 0.9917638984214139,
+        "f1": 0.9912876449200796,
+        "support": 7285
+      },
+      "check_call": {
+        "precision": 0.99809493570408,
+        "recall": 0.9978573129116737,
+        "f1": 0.9979761101631017,
+        "support": 37803
+      },
+      "raise_small": {
+        "precision": 0.9991181657848325,
+        "recall": 0.9994609164420485,
+        "f1": 0.9992895117230566,
+        "support": 20405
+      },
+      "raise_pot": {
+        "precision": 0.9987570777516918,
+        "recall": 0.9991710417242332,
+        "f1": 0.9989640168519925,
+        "support": 7238
+      },
+      "all_in": {
+        "precision": 0.9980732177263969,
+        "recall": 0.9904397705544933,
+        "f1": 0.9942418426103646,
+        "support": 1046
+      }
+    },
+    "confusion_matrix": [
+      [
+        7225,
+        60,
+        0,
+        0,
+        0
+      ],
+      [
+        67,
+        37722,
+        13,
+        0,
+        1
+      ],
+      [
+        0,
+        7,
+        20394,
+        4,
+        0
+      ],
+      [
+        0,
+        0,
+        5,
+        7232,
+        1
+      ],
+      [
+        0,
+        5,
+        0,
+        5,
+        1036
+      ]
+    ],
+    "confusion_matrix_labels": [
+      "fold",
+      "check_call",
+      "raise_small",
+      "raise_pot",
+      "all_in"
+    ],
+    "masked_accuracy_by_street": {
+      "preflop": 0.998651408315031,
+      "flop": 0.9972079824240205,
+      "turn": 0.9964745762711864,
+      "river": 0.998218421521468
+    }
+  },
+  "selected_round": 3,
+  "selection_rule": "highest mean validation BB/100 over the opponents; ties -> earlier round",
+  "total_pipeline_time_s": 480.496155300003,
+  "imitation_on_policy": {
+    "n": 12687,
+    "accuracy": 0.9966895247103335,
+    "masked_accuracy": 0.9967683455505636,
+    "masked_macro_f1": 0.9950845048778645,
+    "masked_balanced_accuracy": 0.9944567662874364,
+    "log_loss": 0.008635429751575064,
+    "illegal_mass": 9.702047049106366e-05,
+    "per_class": {
+      "fold": {
+        "precision": 0.9904175222450377,
+        "recall": 0.9897400820793434,
+        "f1": 0.990078686281218,
+        "support": 1462
+      },
+      "check_call": {
+        "precision": 0.9974061641745499,
+        "recall": 0.9971018913971934,
+        "f1": 0.997254004576659,
+        "support": 6556
+      },
+      "raise_small": {
+        "precision": 0.9976268169682587,
+        "recall": 0.9991087344028521,
+        "f1": 0.9983672257681461,
+        "support": 3366
+      },
+      "raise_pot": {
+        "precision": 0.9991181657848325,
+        "recall": 0.9982378854625551,
+        "f1": 0.998677831643896,
+        "support": 1135
+      },
+      "all_in": {
+        "precision": 0.9940119760479041,
+        "recall": 0.9880952380952381,
+        "f1": 0.991044776119403,
+        "support": 168
+      }
+    },
+    "confusion_matrix": [
+      [
+        1447,
+        15,
+        0,
+        0,
+        0
+      ],
+      [
+        13,
+        6537,
+        6,
+        0,
+        0
+      ],
+      [
+        0,
+        2,
+        3363,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        1133,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        166
+      ]
+    ],
+    "confusion_matrix_labels": [
+      "fold",
+      "check_call",
+      "raise_small",
+      "raise_pot",
+      "all_in"
+    ],
+    "masked_accuracy_by_street": {
+      "preflop": 0.9988607883344726,
+      "flop": 0.994621141253508,
+      "turn": 0.9958333333333333,
+      "river": 0.9981504315659679
+    }
+  },
+  "policy_validation": {
+    "opponents": [
+      "teacher",
+      "call_station",
+      "maniac",
+      "random"
+    ],
+    "pairs_per_opponent": 1000,
+    "seed_namespace": "dataset_val",
+    "mean_bb_per_100": 654.1187500000001,
+    "results": {
+      "teacher": {
+        "a": "XGBoost",
+        "b": "teacher",
+        "pairs": 1000,
+        "hands": 2000,
+        "bb_per_100": -3.45,
+        "ci95_pairs": [
+          -43.527080837974275,
+          36.62708083797427
+        ],
+        "std_error": 20.423092327074276,
+        "matches": 20,
+        "ci95_matches": [
+          -64.1206218244659,
+          57.2206218244659
+        ]
+      },
+      "call_station": {
+        "a": "XGBoost",
+        "b": "call_station",
+        "pairs": 1000,
+        "hands": 2000,
+        "bb_per_100": 674.575,
+        "ci95_pairs": [
+          598.583531210754,
+          750.5664687892461
+        ],
+        "std_error": 38.724895893171066,
+        "matches": 20,
+        "ci95_matches": [
+          578.1841744560224,
+          770.9658255439775
+        ]
+      },
+      "maniac": {
+        "a": "XGBoost",
+        "b": "maniac",
+        "pairs": 1000,
+        "hands": 2000,
+        "bb_per_100": 1376.8000000000002,
+        "ci95_pairs": [
+          1199.85840998896,
+          1553.7415900110402
+        ],
+        "std_error": 90.16860394359634,
+        "matches": 20,
+        "ci95_matches": [
+          1191.684640680786,
+          1561.915359319214
+        ]
+      },
+      "random": {
+        "a": "XGBoost",
+        "b": "random",
+        "pairs": 1000,
+        "hands": 2000,
+        "bb_per_100": 568.5500000000001,
+        "ci95_pairs": [
+          418.79165082168015,
+          718.3083491783199
+        ],
+        "std_error": 76.3161519768427,
+        "matches": 20,
+        "ci95_matches": [
+          405.36152365189236,
+          731.7384763481077
+        ]
+      }
+    }
+  },
+  "dagger": [
+    {
+      "round": 0,
+      "selected": false,
+      "n_train_rows": 150000,
+      "n_dagger_rows_total": 0,
+      "n_dagger_rows_added": 0,
+      "teacher_beta_of_added_rows": null,
+      "fit_seconds": 40.77893829997629,
+      "best_iteration": 435,
+      "bc_validation": {
+        "masked_accuracy": 0.9973975629261151,
+        "masked_macro_f1": 0.995809261945435,
+        "masked_balanced_accuracy": 0.9961775737002829,
+        "log_loss": 0.007007031271896818,
+        "n": 73777,
+        "masked_accuracy_by_street": {
+          "preflop": 0.9984972835510345,
+          "flop": 0.9970248993042842,
+          "turn": 0.9957966101694915,
+          "river": 0.9976839479779084
+        }
+      },
+      "on_policy_validation": {
+        "masked_accuracy": 0.9948693661693898,
+        "masked_macro_f1": 0.994186260405756,
+        "masked_balanced_accuracy": 0.9936757821958752,
+        "log_loss": 0.011587730046258795,
+        "n": 12669,
+        "masked_accuracy_by_street": {
+          "preflop": 0.9984032846715328,
+          "flop": 0.9915828851999064,
+          "turn": 0.9928721174004193,
+          "river": 0.9969192852741836
+        }
+      },
+      "mean_bb_per_100": 651.4875000000001,
+      "policy_validation": {
+        "teacher": {
+          "bb_per_100": 7.75,
+          "ci95_pairs": [
+            -34.258121146565244,
+            49.75812114656525
+          ],
+          "ci95_matches": [
+            -56.02695626698233,
+            71.52695626698234
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        },
+        "call_station": {
+          "bb_per_100": 675.375,
+          "ci95_pairs": [
+            599.2742971418231,
+            751.4757028581769
+          ],
+          "ci95_matches": [
+            578.9450255497974,
+            771.8049744502026
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        },
+        "maniac": {
+          "bb_per_100": 1345.4,
+          "ci95_pairs": [
+            1168.062184067591,
+            1522.7378159324091
+          ],
+          "ci95_matches": [
+            1148.7907800082446,
+            1542.0092199917556
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        },
+        "random": {
+          "bb_per_100": 577.4250000000001,
+          "ci95_pairs": [
+            426.6786972567518,
+            728.1713027432482
+          ],
+          "ci95_matches": [
+            412.7786494002845,
+            742.0713505997155
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        }
+      }
+    },
+    {
+      "round": 1,
+      "selected": false,
+      "n_train_rows": 180350,
+      "n_dagger_rows_total": 30350,
+      "n_dagger_rows_added": 30350,
+      "teacher_beta_of_added_rows": 0.5,
+      "fit_seconds": 44.640789700031746,
+      "best_iteration": 490,
+      "bc_validation": {
+        "masked_accuracy": 0.9975195521639535,
+        "masked_macro_f1": 0.9962429825139978,
+        "masked_balanced_accuracy": 0.9960758972478541,
+        "log_loss": 0.0063297455321209,
+        "n": 73777,
+        "masked_accuracy_by_street": {
+          "preflop": 0.9986128771240319,
+          "flop": 0.9967045038447455,
+          "turn": 0.9963389830508474,
+          "river": 0.9981293425975414
+        }
+      },
+      "on_policy_validation": {
+        "masked_accuracy": 0.9961301532143422,
+        "masked_macro_f1": 0.9956748796930721,
+        "masked_balanced_accuracy": 0.9952458971975779,
+        "log_loss": 0.009201209628115072,
+        "n": 12662,
+        "masked_accuracy_by_street": {
+          "preflop": 0.9986316989737742,
+          "flop": 0.9937033582089553,
+          "turn": 0.9949388443694643,
+          "river": 0.9975278121137207
+        }
+      },
+      "mean_bb_per_100": 649.775,
+      "policy_validation": {
+        "teacher": {
+          "bb_per_100": -5.800000000000001,
+          "ci95_pairs": [
+            -45.00586975275789,
+            33.40586975275789
+          ],
+          "ci95_matches": [
+            -67.8294232223607,
+            56.229423222360694
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        },
+        "call_station": {
+          "bb_per_100": 676.475,
+          "ci95_pairs": [
+            600.1973995614259,
+            752.7526004385742
+          ],
+          "ci95_matches": [
+            577.3302635518392,
+            775.6197364481609
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        },
+        "maniac": {
+          "bb_per_100": 1342.2,
+          "ci95_pairs": [
+            1163.6740964639935,
+            1520.7259035360066
+          ],
+          "ci95_matches": [
+            1163.0488875630044,
+            1521.3511124369957
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        },
+        "random": {
+          "bb_per_100": 586.225,
+          "ci95_pairs": [
+            434.5799266783525,
+            737.8700733216476
+          ],
+          "ci95_matches": [
+            416.47003795630286,
+            755.9799620436972
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        }
+      },
+      "paired_vs_bc": {
+        "teacher": {
+          "bb_per_100": -13.55,
+          "ci95_pairs": [
+            -40.572198701872026,
+            13.472198701872024
+          ],
+          "ci95_matches": [
+            -45.67189041576378,
+            18.571890415763775
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        },
+        "call_station": {
+          "bb_per_100": 1.0999999999999999,
+          "ci95_pairs": [
+            -3.768404623378939,
+            5.968404623378938
+          ],
+          "ci95_matches": [
+            -3.9950368412470865,
+            6.195036841247087
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        },
+        "maniac": {
+          "bb_per_100": -3.2,
+          "ci95_pairs": [
+            -51.22702956767955,
+            44.82702956767955
+          ],
+          "ci95_matches": [
+            -61.79220060541786,
+            55.392200605417855
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        },
+        "random": {
+          "bb_per_100": 8.799999999999999,
+          "ci95_pairs": [
+            -70.20928467871464,
+            87.80928467871463
+          ],
+          "ci95_matches": [
+            -48.848591216885815,
+            66.44859121688582
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        }
+      }
+    },
+    {
+      "round": 2,
+      "selected": false,
+      "n_train_rows": 213047,
+      "n_dagger_rows_total": 63047,
+      "n_dagger_rows_added": 32697,
+      "teacher_beta_of_added_rows": 0.25,
+      "fit_seconds": 45.06159940001089,
+      "best_iteration": 372,
+      "bc_validation": {
+        "masked_accuracy": 0.9975331065237133,
+        "masked_macro_f1": 0.9962322986784417,
+        "masked_balanced_accuracy": 0.9957240685927774,
+        "log_loss": 0.0069477217877290205,
+        "n": 73777,
+        "masked_accuracy_by_street": {
+          "preflop": 0.9986899395060301,
+          "flop": 0.9965671915049432,
+          "turn": 0.996135593220339,
+          "river": 0.9985747372171744
+        }
+      },
+      "on_policy_validation": {
+        "masked_accuracy": 0.996608832807571,
+        "masked_macro_f1": 0.9941643232069592,
+        "masked_balanced_accuracy": 0.9938571100184808,
+        "log_loss": 0.009685795450256994,
+        "n": 12680,
+        "masked_accuracy_by_street": {
+          "preflop": 0.9988597491448119,
+          "flop": 0.9948574100046751,
+          "turn": 0.9949811794228356,
+          "river": 0.997539975399754
+        }
+      },
+      "mean_bb_per_100": 646.5625,
+      "policy_validation": {
+        "teacher": {
+          "bb_per_100": -0.05,
+          "ci95_pairs": [
+            -41.67859022679621,
+            41.57859022679621
+          ],
+          "ci95_matches": [
+            -59.01814859270432,
+            58.918148592704334
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        },
+        "call_station": {
+          "bb_per_100": 677.575,
+          "ci95_pairs": [
+            601.4612931463654,
+            753.6887068536347
+          ],
+          "ci95_matches": [
+            581.3283397895914,
+            773.8216602104087
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        },
+        "maniac": {
+          "bb_per_100": 1348.1,
+          "ci95_pairs": [
+            1171.3503333445447,
+            1524.8496666554554
+          ],
+          "ci95_matches": [
+            1168.0258357150003,
+            1528.1741642849997
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        },
+        "random": {
+          "bb_per_100": 560.625,
+          "ci95_pairs": [
+            409.1831355544345,
+            712.0668644455656
+          ],
+          "ci95_matches": [
+            397.2824515919287,
+            723.9675484080714
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        }
+      },
+      "paired_vs_bc": {
+        "teacher": {
+          "bb_per_100": -7.8,
+          "ci95_pairs": [
+            -19.03462970712731,
+            3.4346297071273084
+          ],
+          "ci95_matches": [
+            -22.44219553013543,
+            6.842195530135429
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        },
+        "call_station": {
+          "bb_per_100": 2.1999999999999997,
+          "ci95_pairs": [
+            -0.386196975818737,
+            4.786196975818736
+          ],
+          "ci95_matches": [
+            -0.4282599885641829,
+            4.828259988564183
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        },
+        "maniac": {
+          "bb_per_100": 2.7,
+          "ci95_pairs": [
+            -52.96853450653602,
+            58.368534506536015
+          ],
+          "ci95_matches": [
+            -56.50045849343128,
+            61.90045849343129
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        },
+        "random": {
+          "bb_per_100": -16.8,
+          "ci95_pairs": [
+            -94.89950714938348,
+            61.29950714938348
+          ],
+          "ci95_matches": [
+            -62.190629374042615,
+            28.59062937404261
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        }
+      }
+    },
+    {
+      "round": 3,
+      "selected": true,
+      "n_train_rows": 245525,
+      "n_dagger_rows_total": 95525,
+      "n_dagger_rows_added": 32478,
+      "teacher_beta_of_added_rows": 0.125,
+      "fit_seconds": 45.53770019998774,
+      "best_iteration": 380,
+      "bc_validation": {
+        "masked_accuracy": 0.9977228675603508,
+        "masked_macro_f1": 0.996351825253719,
+        "masked_balanced_accuracy": 0.9957385880107725,
+        "log_loss": 0.006337393324806693,
+        "n": 73777,
+        "masked_accuracy_by_street": {
+          "preflop": 0.998651408315031,
+          "flop": 0.9972079824240205,
+          "turn": 0.9964745762711864,
+          "river": 0.998218421521468
+        }
+      },
+      "on_policy_validation": {
+        "masked_accuracy": 0.9967683455505636,
+        "masked_macro_f1": 0.9950845048778645,
+        "masked_balanced_accuracy": 0.9944567662874364,
+        "log_loss": 0.008635429751575064,
+        "n": 12687,
+        "masked_accuracy_by_street": {
+          "preflop": 0.9988607883344726,
+          "flop": 0.994621141253508,
+          "turn": 0.9958333333333333,
+          "river": 0.9981504315659679
+        }
+      },
+      "mean_bb_per_100": 654.1187500000001,
+      "policy_validation": {
+        "teacher": {
+          "bb_per_100": -3.45,
+          "ci95_pairs": [
+            -43.527080837974275,
+            36.62708083797427
+          ],
+          "ci95_matches": [
+            -64.1206218244659,
+            57.2206218244659
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        },
+        "call_station": {
+          "bb_per_100": 674.575,
+          "ci95_pairs": [
+            598.583531210754,
+            750.5664687892461
+          ],
+          "ci95_matches": [
+            578.1841744560224,
+            770.9658255439775
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        },
+        "maniac": {
+          "bb_per_100": 1376.8000000000002,
+          "ci95_pairs": [
+            1199.85840998896,
+            1553.7415900110402
+          ],
+          "ci95_matches": [
+            1191.684640680786,
+            1561.915359319214
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        },
+        "random": {
+          "bb_per_100": 568.5500000000001,
+          "ci95_pairs": [
+            418.79165082168015,
+            718.3083491783199
+          ],
+          "ci95_matches": [
+            405.36152365189236,
+            731.7384763481077
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        }
+      },
+      "paired_vs_bc": {
+        "teacher": {
+          "bb_per_100": -11.200000000000001,
+          "ci95_pairs": [
+            -31.85501657226793,
+            9.455016572267928
+          ],
+          "ci95_matches": [
+            -29.65300430626996,
+            7.253004306269957
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        },
+        "call_station": {
+          "bb_per_100": -0.8,
+          "ci95_pairs": [
+            -2.782237234281393,
+            1.1822372342813927
+          ],
+          "ci95_matches": [
+            -1.9116800550446729,
+            0.31168005504467294
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        },
+        "maniac": {
+          "bb_per_100": 31.4,
+          "ci95_pairs": [
+            -30.958285483068178,
+            93.75828548306816
+          ],
+          "ci95_matches": [
+            -13.64198617184239,
+            76.44198617184239
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        },
+        "random": {
+          "bb_per_100": -8.875,
+          "ci95_pairs": [
+            -67.08830297930193,
+            49.33830297930193
+          ],
+          "ci95_matches": [
+            -48.37864037373244,
+            30.62864037373244
+          ],
+          "pairs": 1000,
+          "hands": 2000,
+          "matches": 20
+        }
+      }
+    }
+  ],
+  "dagger_settings": {
+    "rounds": 3,
+    "hands_per_round": 10000,
+    "teacher_beta": 0.5,
+    "on_policy_validation_hands": 4000
+  },
+  "global_importance": {
+    "equity": 11.824118614196777,
+    "equity_minus_pot_odds": 11.630873680114746,
+    "pot_odds": 4.801107406616211,
+    "spr": 3.903125762939453,
+    "street": 3.7144393920898438,
+    "opp_aggression": 3.1371686458587646,
+    "num_raises_street": 2.974699020385742,
+    "pot_bb": 1.9623630046844482,
+    "call_stack_fraction": 1.18369722366333,
+    "board_straightness": 1.0906379222869873,
+    "opp_fold_to_bet": 1.0437709093093872,
+    "preflop_percentile": 1.0128055810928345,
+    "to_call_bb": 0.8430424928665161,
+    "my_commit_frac": 0.7502027153968811,
+    "opp_pfr": 0.7475715279579163,
+    "flush_draw": 0.7372692227363586,
+    "effective_stack_bb": 0.702177107334137,
+    "is_button": 0.6824606657028198,
+    "i_have_initiative": 0.6781038045883179,
+    "straight_outs": 0.6298155188560486,
+    "board_max_suit_count": 0.6076123118400574,
+    "board_high_rank": 0.5027664303779602,
+    "opp_stack_bb": 0.49442699551582336,
+    "my_stack_bb": 0.38462260365486145,
+    "num_raises_hand": 0.35861510038375854,
+    "opp_log_hands": 0.2941652536392212,
+    "opp_vpip": 0.22668692469596863,
+    "facing_bet": 0.22500744462013245,
+    "opp_showdown_rate": 0.21070703864097595,
+    "opp_commit_frac": 0.19632163643836975,
+    "hole_low_rank": 0.17778003215789795,
+    "made_hand_category": 0.15489496290683746,
+    "hole_gap": 0.12311887741088867,
+    "hole_high_rank": 0.10129360854625702,
+    "overcards": 0.08664390444755554,
+    "opp_has_initiative": 0.06517867743968964,
+    "pair_with_board": 0.05508464202284813,
+    "board_paired": 0.04871009662747383,
+    "is_suited": 0.040847230702638626,
+    "is_pair": 0.012603646144270897,
+    "facing_all_in": 0.0,
+    "can_raise": 0.0,
+    "bet_fraction_of_pot": 0.0,
+    "i_raised_this_street": 0.0,
+    "opp_raised_this_street": 0.0
+  },
+  "global_importance_gain": {
+    "equity_minus_pot_odds": 0.31244543283610543,
+    "equity": 0.2303841044441555,
+    "num_raises_street": 0.07091307907581688,
+    "pot_odds": 0.06665072237650682,
+    "spr": 0.06269753281715033,
+    "street": 0.046504390366888276,
+    "pot_bb": 0.03439468032703334,
+    "my_commit_frac": 0.033297184666048474,
+    "opp_aggression": 0.02174156327192436,
+    "call_stack_fraction": 0.01986150558859111,
+    "preflop_percentile": 0.017348484536921185,
+    "board_straightness": 0.01576663555251886,
+    "effective_stack_bb": 0.013252827102783518,
+    "opp_fold_to_bet": 0.01023969778797071,
+    "board_max_suit_count": 0.006148457691872107,
+    "i_have_initiative": 0.005594727853088383,
+    "to_call_bb": 0.00498928503574704,
+    "straight_outs": 0.0045488934140674704,
+    "flush_draw": 0.0040858966639538,
+    "opp_pfr": 0.0040465788080441024,
+    "is_button": 0.003989157193512227,
+    "facing_bet": 0.0028493214404685056,
+    "num_raises_hand": 0.0022067655108773654,
+    "my_stack_bb": 0.001590438834346372,
+    "opp_stack_bb": 0.0009306004185982543,
+    "hole_high_rank": 0.000774511618586333,
+    "pair_with_board": 0.0005486257081927745,
+    "board_high_rank": 0.0004826608755354393,
+    "opp_vpip": 0.0003672028188463852,
+    "is_suited": 0.00021705754033298947,
+    "opp_showdown_rate": 0.00021094879027070012,
+    "opp_has_initiative": 0.0001940099002922401,
+    "opp_log_hands": 0.0001888838167640898,
+    "opp_commit_frac": 0.00018442075555450015,
+    "made_hand_category": 0.00017893322999987656,
+    "hole_gap": 7.681636214890734e-05,
+    "hole_low_rank": 6.660967292815656e-05,
+    "overcards": 2.0645994617232477e-05,
+    "board_paired": 8.48085363356518e-06,
+    "is_pair": 2.228447306360027e-06,
+    "facing_all_in": 0.0,
+    "can_raise": 0.0,
+    "bet_fraction_of_pot": 0.0,
+    "i_raised_this_street": 0.0,
+    "opp_raised_this_street": 0.0
+  },
+  "global_importance_by_class": {
+    "fold": {
+      "equity_minus_pot_odds": 3.7969436645507812,
+      "pot_odds": 3.597551107406616,
+      "opp_aggression": 2.1188905239105225,
+      "street": 0.8862007856369019,
+      "call_stack_fraction": 0.714038074016571,
+      "num_raises_street": 0.39402180910110474,
+      "to_call_bb": 0.39112749695777893,
+      "is_button": 0.32435911893844604,
+      "opp_pfr": 0.290551096200943,
+      "equity": 0.23181577026844025,
+      "num_raises_hand": 0.19762712717056274,
+      "flush_draw": 0.16618047654628754,
+      "straight_outs": 0.14468078315258026,
+      "pot_bb": 0.13730281591415405,
+      "board_high_rank": 0.11212550103664398,
+      "preflop_percentile": 0.07573182880878448,
+      "opp_showdown_rate": 0.06647435575723648,
+      "facing_bet": 0.05993092805147171,
+      "opp_log_hands": 0.056107018142938614,
+      "opp_vpip": 0.044996365904808044,
+      "opp_fold_to_bet": 0.04285454750061035,
+      "hole_gap": 0.03413093835115433,
+      "pair_with_board": 0.03195754438638687,
+      "effective_stack_bb": 0.031816259026527405,
+      "board_straightness": 0.031204363331198692,
+      "spr": 0.026627935469150543,
+      "hole_high_rank": 0.026373056694865227,
+      "hole_low_rank": 0.020027553662657738,
+      "opp_stack_bb": 0.019252965226769447,
+      "my_commit_frac": 0.01902119442820549,
+      "my_stack_bb": 0.0175264161080122,
+      "overcards": 0.017404979094862938,
+      "i_have_initiative": 0.013932693749666214,
+      "board_max_suit_count": 0.013356531038880348,
+      "made_hand_category": 0.012881690636277199,
+      "opp_has_initiative": 0.006509364116936922,
+      "is_suited": 0.006409126333892345,
+      "opp_commit_frac": 0.006230971310287714,
+      "board_paired": 0.0028236135840415955,
+      "is_pair": 0.0006665686378255486,
+      "facing_all_in": 0.0,
+      "can_raise": 0.0,
+      "bet_fraction_of_pot": 0.0,
+      "i_raised_this_street": 0.0,
+      "opp_raised_this_street": 0.0
+    },
+    "check_call": {
+      "equity_minus_pot_odds": 3.0027012825012207,
+      "pot_odds": 1.0847176313400269,
+      "pot_bb": 1.0429213047027588,
+      "opp_aggression": 0.7283018231391907,
+      "equity": 0.7045737504959106,
+      "street": 0.3868180811405182,
+      "opp_fold_to_bet": 0.35344016551971436,
+      "opp_pfr": 0.2681379020214081,
+      "num_raises_street": 0.23382966220378876,
+      "to_call_bb": 0.1632387936115265,
+      "preflop_percentile": 0.14908462762832642,
+      "i_have_initiative": 0.09871191531419754,
+      "is_button": 0.09438835829496384,
+      "board_high_rank": 0.08157756924629211,
+      "opp_showdown_rate": 0.07386406511068344,
+      "effective_stack_bb": 0.05833011493086815,
+      "opp_vpip": 0.05631598085165024,
+      "num_raises_hand": 0.05237611010670662,
+      "call_stack_fraction": 0.04961130768060684,
+      "spr": 0.04312651604413986,
+      "opp_log_hands": 0.03959362953901291,
+      "board_straightness": 0.03921547904610634,
+      "hole_low_rank": 0.03918326273560524,
+      "straight_outs": 0.03707565739750862,
+      "flush_draw": 0.03312491253018379,
+      "my_commit_frac": 0.027996689081192017,
+      "facing_bet": 0.024999981746077538,
+      "hole_gap": 0.022566884756088257,
+      "opp_has_initiative": 0.020778845995664597,
+      "my_stack_bb": 0.017436238005757332,
+      "made_hand_category": 0.015461442992091179,
+      "board_max_suit_count": 0.014852304011583328,
+      "hole_high_rank": 0.014798370189964771,
+      "overcards": 0.013866256922483444,
+      "opp_commit_frac": 0.01152985729277134,
+      "opp_stack_bb": 0.00634895171970129,
+      "is_suited": 0.006301671266555786,
+      "pair_with_board": 0.006250677164644003,
+      "board_paired": 0.003959118388593197,
+      "is_pair": 0.001430546399205923,
+      "facing_all_in": 0.0,
+      "can_raise": 0.0,
+      "bet_fraction_of_pot": 0.0,
+      "i_raised_this_street": 0.0,
+      "opp_raised_this_street": 0.0
+    },
+    "raise_small": {
+      "equity": 3.0738792419433594,
+      "num_raises_street": 2.2531373500823975,
+      "equity_minus_pot_odds": 1.4076509475708008,
+      "opp_fold_to_bet": 0.540592610836029,
+      "i_have_initiative": 0.5375213623046875,
+      "flush_draw": 0.43903079628944397,
+      "board_straightness": 0.40568798780441284,
+      "straight_outs": 0.32982316613197327,
+      "call_stack_fraction": 0.3100845515727997,
+      "street": 0.29217320680618286,
+      "pot_bb": 0.24591122567653656,
+      "board_max_suit_count": 0.2062229961156845,
+      "is_button": 0.1849760115146637,
+      "spr": 0.12422239035367966,
+      "my_commit_frac": 0.0967097207903862,
+      "effective_stack_bb": 0.0914245992898941,
+      "preflop_percentile": 0.08758100867271423,
+      "board_high_rank": 0.06318893283605576,
+      "opp_aggression": 0.06031957268714905,
+      "opp_log_hands": 0.04994448274374008,
+      "made_hand_category": 0.04440987855195999,
+      "opp_vpip": 0.04204912856221199,
+      "opp_showdown_rate": 0.03167111054062843,
+      "opp_pfr": 0.0316128171980381,
+      "hole_high_rank": 0.030286481603980064,
+      "opp_has_initiative": 0.029248688369989395,
+      "my_stack_bb": 0.0288254264742136,
+      "hole_gap": 0.026874208822846413,
+      "hole_low_rank": 0.02515016309916973,
+      "board_paired": 0.018393563106656075,
+      "is_suited": 0.01645231805741787,
+      "facing_bet": 0.015261991880834103,
+      "pot_odds": 0.014160508289933205,
+      "opp_commit_frac": 0.013208680786192417,
+      "opp_stack_bb": 0.010538795031607151,
+      "num_raises_hand": 0.006035773083567619,
+      "overcards": 0.005634153727442026,
+      "pair_with_board": 0.004666169174015522,
+      "to_call_bb": 0.002311138203367591,
+      "is_pair": 0.0,
+      "facing_all_in": 0.0,
+      "can_raise": 0.0,
+      "bet_fraction_of_pot": 0.0,
+      "i_raised_this_street": 0.0,
+      "opp_raised_this_street": 0.0
+    },
+    "raise_pot": {
+      "equity": 6.195160388946533,
+      "equity_minus_pot_odds": 1.570831298828125,
+      "street": 1.1367790699005127,
+      "board_straightness": 0.4971948266029358,
+      "preflop_percentile": 0.4460327625274658,
+      "spr": 0.33434784412384033,
+      "board_max_suit_count": 0.2933475077152252,
+      "pot_bb": 0.292400062084198,
+      "to_call_bb": 0.2656213641166687,
+      "board_high_rank": 0.15996690094470978,
+      "opp_aggression": 0.12713803350925446,
+      "facing_bet": 0.10084874927997589,
+      "my_commit_frac": 0.09971708059310913,
+      "opp_log_hands": 0.08973246812820435,
+      "opp_commit_frac": 0.08542964607477188,
+      "made_hand_category": 0.07779377698898315,
+      "num_raises_hand": 0.06481920182704926,
+      "is_button": 0.05570142716169357,
+      "opp_fold_to_bet": 0.05011832341551781,
+      "effective_stack_bb": 0.047383055090904236,
+      "hole_low_rank": 0.04640714079141617,
+      "opp_pfr": 0.041433535516262054,
+      "pot_odds": 0.041325248777866364,
+      "overcards": 0.038909174501895905,
+      "opp_vpip": 0.03452388569712639,
+      "hole_high_rank": 0.020657356828451157,
+      "call_stack_fraction": 0.020119577646255493,
+      "my_stack_bb": 0.019244493916630745,
+      "opp_stack_bb": 0.0153041398152709,
+      "opp_showdown_rate": 0.015121783129870892,
+      "hole_gap": 0.014632121659815311,
+      "board_paired": 0.013385766185820103,
+      "num_raises_street": 0.011428591795265675,
+      "pair_with_board": 0.011204940266907215,
+      "i_have_initiative": 0.007686855271458626,
+      "straight_outs": 0.005319970194250345,
+      "flush_draw": 0.004766514524817467,
+      "is_suited": 0.0031068390235304832,
+      "opp_has_initiative": 0.0012140371836721897,
+      "is_pair": 0.0,
+      "facing_all_in": 0.0,
+      "can_raise": 0.0,
+      "bet_fraction_of_pot": 0.0,
+      "i_raised_this_street": 0.0,
+      "opp_raised_this_street": 0.0
+    },
+    "all_in": {
+      "spr": 3.3748011589050293,
+      "equity_minus_pot_odds": 1.8527456521987915,
+      "equity": 1.6186895370483398,
+      "street": 1.0124682188034058,
+      "my_commit_frac": 0.5067580342292786,
+      "effective_stack_bb": 0.4732230603694916,
+      "opp_stack_bb": 0.44298213720321655,
+      "my_stack_bb": 0.3015900254249573,
+      "preflop_percentile": 0.25437530875205994,
+      "pot_bb": 0.24382753670215607,
+      "board_straightness": 0.11733528971672058,
+      "opp_pfr": 0.11583620309829712,
+      "straight_outs": 0.11291594058275223,
+      "opp_aggression": 0.10251866281032562,
+      "flush_draw": 0.09416653215885162,
+      "call_stack_fraction": 0.08984380960464478,
+      "board_high_rank": 0.08590749651193619,
+      "num_raises_street": 0.08228158205747604,
+      "opp_commit_frac": 0.07992248237133026,
+      "board_max_suit_count": 0.07983298599720001,
+      "pot_odds": 0.06335299462080002,
+      "opp_log_hands": 0.05878765136003494,
+      "opp_fold_to_bet": 0.05676528811454773,
+      "opp_vpip": 0.04880155995488167,
+      "hole_low_rank": 0.04701191559433937,
+      "num_raises_hand": 0.03775685280561447,
+      "hole_gap": 0.024914730340242386,
+      "facing_bet": 0.02396579459309578,
+      "opp_showdown_rate": 0.02357572317123413,
+      "is_button": 0.02303571254014969,
+      "to_call_bb": 0.02074374631047249,
+      "i_have_initiative": 0.020250950008630753,
+      "overcards": 0.010829342529177666,
+      "is_pair": 0.010506531223654747,
+      "board_paired": 0.010148036293685436,
+      "hole_high_rank": 0.00917834136635065,
+      "is_suited": 0.008577275089919567,
+      "opp_has_initiative": 0.0074277399107813835,
+      "made_hand_category": 0.004348169080913067,
+      "pair_with_board": 0.0010053134756162763,
+      "facing_all_in": 0.0,
+      "can_raise": 0.0,
+      "bet_fraction_of_pot": 0.0,
+      "i_raised_this_street": 0.0,
+      "opp_raised_this_street": 0.0
+    }
+  },
+  "importance_definitions": {
+    "global_importance": "mean |SHAP| (exact TreeSHAP, log-odds margin) per feature on 5000 random validation rows, summed over the five action classes",
+    "global_importance_gain": "share of the total split gain per feature (sums to 1)",
+    "global_importance_by_class": "mean |SHAP| per class and feature on the same rows"
+  },
+  "shap_library_check": {
+    "rows": 100,
+    "shap_version": "0.53.0",
+    "max_abs_difference": 0.0,
+    "note": "shap.TreeExplainer delegates to XGBoost's own pred_contribs for XGBoost models, so equality is expected"
+  },
+  "inference": {
+    "predict_proba_median_ms": 1.5664499951526523,
+    "predict_proba_p95_ms": 1.8374950217548758,
+    "shap_explanation_median_ms": 15.600850019836798,
+    "rows": 300
+  },
+  "model_file_bytes": 7335469,
+  "notes": "Imitation metrics measure agreement with the equity teacher, not poker skill. The tree count and hyper-parameters were selected on the validation split, so 'imitation' is slightly optimistic; 'imitation_on_policy' and 'policy_validation' use fresh validation seeds.",
+  "evaluation_protocol_note": "policy_validation and every dagger[*].policy_validation entry were computed with the legacy single-table duplicate protocol (the two hands of a deal shared agents and opponent trackers), which gives the second-moving agent a small advantage (roughly +10 to +13 BB/100 between identical adaptive agents). They are informational: the DAgger round was selected among near-tied candidates. Tournament results in artifacts/tournaments use the corrected two-table protocol. See docs/METHODOLOGY.md, section 5."
+}

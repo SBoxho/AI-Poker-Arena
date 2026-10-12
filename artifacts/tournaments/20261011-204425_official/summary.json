@@ -1,0 +1,1289 @@
+{
+  "schema_version": 2,
+  "run_id": "20261011-204425_official",
+  "agents": [
+    "EBM",
+    "XGBoost",
+    "GA",
+    "Teacher",
+    "Random",
+    "CallStation",
+    "Maniac"
+  ],
+  "matches": [
+    {
+      "a": "CallStation",
+      "b": "EBM",
+      "stem": "CallStation__vs__EBM"
+    },
+    {
+      "a": "CallStation",
+      "b": "GA",
+      "stem": "CallStation__vs__GA"
+    },
+    {
+      "a": "CallStation",
+      "b": "Maniac",
+      "stem": "CallStation__vs__Maniac"
+    },
+    {
+      "a": "CallStation",
+      "b": "Random",
+      "stem": "CallStation__vs__Random"
+    },
+    {
+      "a": "CallStation",
+      "b": "Teacher",
+      "stem": "CallStation__vs__Teacher"
+    },
+    {
+      "a": "CallStation",
+      "b": "XGBoost",
+      "stem": "CallStation__vs__XGBoost"
+    },
+    {
+      "a": "EBM",
+      "b": "GA",
+      "stem": "EBM__vs__GA"
+    },
+    {
+      "a": "EBM",
+      "b": "Maniac",
+      "stem": "EBM__vs__Maniac"
+    },
+    {
+      "a": "EBM",
+      "b": "Random",
+      "stem": "EBM__vs__Random"
+    },
+    {
+      "a": "EBM",
+      "b": "Teacher",
+      "stem": "EBM__vs__Teacher"
+    },
+    {
+      "a": "EBM",
+      "b": "XGBoost",
+      "stem": "EBM__vs__XGBoost"
+    },
+    {
+      "a": "GA",
+      "b": "Maniac",
+      "stem": "GA__vs__Maniac"
+    },
+    {
+      "a": "GA",
+      "b": "Random",
+      "stem": "GA__vs__Random"
+    },
+    {
+      "a": "GA",
+      "b": "Teacher",
+      "stem": "GA__vs__Teacher"
+    },
+    {
+      "a": "GA",
+      "b": "XGBoost",
+      "stem": "GA__vs__XGBoost"
+    },
+    {
+      "a": "Maniac",
+      "b": "Random",
+      "stem": "Maniac__vs__Random"
+    },
+    {
+      "a": "Maniac",
+      "b": "Teacher",
+      "stem": "Maniac__vs__Teacher"
+    },
+    {
+      "a": "Maniac",
+      "b": "XGBoost",
+      "stem": "Maniac__vs__XGBoost"
+    },
+    {
+      "a": "Random",
+      "b": "Teacher",
+      "stem": "Random__vs__Teacher"
+    },
+    {
+      "a": "Random",
+      "b": "XGBoost",
+      "stem": "Random__vs__XGBoost"
+    },
+    {
+      "a": "Teacher",
+      "b": "XGBoost",
+      "stem": "Teacher__vs__XGBoost"
+    }
+  ],
+  "ranking_note": "Agents are ranked by their point estimate of BB/100 (every opponent weighted equally). Poker is noisy: neighbouring ranks are NOT statistically separated unless the pairwise verdict says so.",
+  "ci_unit": {
+    "requested": "session",
+    "used": "session",
+    "min_sessions": 8,
+    "sessions_per_match": 200,
+    "note": null
+  },
+  "protocol": {
+    "used": "two_table",
+    "note": null
+  },
+  "leaderboard": [
+    {
+      "agent": "EBM",
+      "bb_per_100": {
+        "n": 1200,
+        "mean": 466.02583333333337,
+        "se": 4.961117844309659,
+        "ci_low": 456.28023360080084,
+        "ci_high": 475.7714330658659,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 536.4547446752355,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "bb_per_100_pooled": {
+        "n": 1200,
+        "mean": 466.0258333333333,
+        "se": 14.64210764083062,
+        "ci_low": 437.29883091312763,
+        "ci_high": 494.752835753539,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 1199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "bb_per_100_pair": {
+        "n": 120000,
+        "mean": 466.02583333333337,
+        "se": 4.892657106846687,
+        "ci_low": 456.4361858299067,
+        "ci_high": 475.61548083676,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 53789.420592935225,
+        "unit": "pair",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "ci_unit": "session",
+      "hands": 240000,
+      "opponents": 6,
+      "wins": 6,
+      "losses": 0,
+      "draws": 0,
+      "insufficient": 0,
+      "rank": 1
+    },
+    {
+      "agent": "Teacher",
+      "bb_per_100": {
+        "n": 1200,
+        "mean": 450.0652083333334,
+        "se": 4.98143178691194,
+        "ci_low": 440.28028135011846,
+        "ci_high": 459.8501353165483,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 550.8290873285109,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "bb_per_100_pooled": {
+        "n": 1200,
+        "mean": 450.0652083333333,
+        "se": 15.253295157448314,
+        "ci_low": 420.1390899320297,
+        "ci_high": 479.9913267346369,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 1199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "bb_per_100_pair": {
+        "n": 120000,
+        "mean": 450.0652083333334,
+        "se": 4.88442229115381,
+        "ci_low": 440.4916949832607,
+        "ci_high": 459.63872168340606,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 52295.98906706098,
+        "unit": "pair",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "ci_unit": "session",
+      "hands": 240000,
+      "opponents": 6,
+      "wins": 4,
+      "losses": 1,
+      "draws": 1,
+      "insufficient": 0,
+      "rank": 2
+    },
+    {
+      "agent": "XGBoost",
+      "bb_per_100": {
+        "n": 1200,
+        "mean": 442.2789583333333,
+        "se": 4.783042338597455,
+        "ci_low": 432.8838981394007,
+        "ci_high": 451.67401852726596,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 555.5108899577979,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "bb_per_100_pooled": {
+        "n": 1200,
+        "mean": 442.2789583333333,
+        "se": 14.720718121697939,
+        "ci_low": 413.3977265132678,
+        "ci_high": 471.16019015339884,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 1199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "bb_per_100_pair": {
+        "n": 120000,
+        "mean": 442.2789583333333,
+        "se": 4.9219894780641615,
+        "ci_low": 432.63181384180547,
+        "ci_high": 451.9261028248612,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 52506.705479671684,
+        "unit": "pair",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "ci_unit": "session",
+      "hands": 240000,
+      "opponents": 6,
+      "wins": 4,
+      "losses": 1,
+      "draws": 1,
+      "insufficient": 0,
+      "rank": 3
+    },
+    {
+      "agent": "GA",
+      "bb_per_100": {
+        "n": 1200,
+        "mean": 229.52104166666666,
+        "se": 4.179246692492594,
+        "ci_low": 221.31442886057516,
+        "ci_high": 237.72765447275816,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 643.3156261554915,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "bb_per_100_pooled": {
+        "n": 1200,
+        "mean": 229.52104166666666,
+        "se": 11.022012838633923,
+        "ci_low": 207.89646429994727,
+        "ci_high": 251.14561903338605,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 1199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "bb_per_100_pair": {
+        "n": 120000,
+        "mean": 229.52104166666666,
+        "se": 4.179437227744417,
+        "ci_low": 221.32933443693523,
+        "ci_high": 237.7127488963981,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 61664.85122384473,
+        "unit": "pair",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "ci_unit": "session",
+      "hands": 240000,
+      "opponents": 6,
+      "wins": 3,
+      "losses": 3,
+      "draws": 0,
+      "insufficient": 0,
+      "rank": 4
+    },
+    {
+      "agent": "Random",
+      "bb_per_100": {
+        "n": 1200,
+        "mean": -435.82625,
+        "se": 7.931329414109946,
+        "ci_low": -451.39210435802454,
+        "ci_high": -420.2603956419755,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 908.6332642218038,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "bb_per_100_pooled": {
+        "n": 1200,
+        "mean": -435.82625,
+        "se": 10.67327607680285,
+        "ci_low": -456.76662519809173,
+        "ci_high": -414.8858748019083,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 1199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "bb_per_100_pair": {
+        "n": 120000,
+        "mean": -435.82625,
+        "se": 7.7005905369649925,
+        "ci_low": -450.9193192646306,
+        "ci_high": -420.73318073536944,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 96578.76834948802,
+        "unit": "pair",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "ci_unit": "session",
+      "hands": 240000,
+      "opponents": 6,
+      "wins": 0,
+      "losses": 5,
+      "draws": 1,
+      "insufficient": 0,
+      "rank": 5
+    },
+    {
+      "agent": "CallStation",
+      "bb_per_100": {
+        "n": 1200,
+        "mean": -463.66083333333336,
+        "se": 5.209854272944049,
+        "ci_low": -473.8898623242696,
+        "ci_high": -453.43180434239713,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 691.5598677971734,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "bb_per_100_pooled": {
+        "n": 1200,
+        "mean": -463.66083333333336,
+        "se": 10.81116513144082,
+        "ci_low": -484.8717392025191,
+        "ci_high": -442.4499274641476,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 1199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "bb_per_100_pair": {
+        "n": 120000,
+        "mean": -463.66083333333336,
+        "se": 5.2752245266483495,
+        "ci_low": -474.00026952525906,
+        "ci_high": -453.32139714140766,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 67242.65051272705,
+        "unit": "pair",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "ci_unit": "session",
+      "hands": 240000,
+      "opponents": 6,
+      "wins": 0,
+      "losses": 4,
+      "draws": 2,
+      "insufficient": 0,
+      "rank": 6
+    },
+    {
+      "agent": "Maniac",
+      "bb_per_100": {
+        "n": 1200,
+        "mean": -688.4039583333333,
+        "se": 8.43930881232188,
+        "ci_low": -704.9644707467868,
+        "ci_high": -671.8434459198799,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 1013.7958728034558,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "bb_per_100_pooled": {
+        "n": 1200,
+        "mean": -688.4039583333333,
+        "se": 23.60731442267946,
+        "ci_low": -734.7201988084237,
+        "ci_high": -642.087717858243,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 1199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "bb_per_100_pair": {
+        "n": 120000,
+        "mean": -688.4039583333333,
+        "se": 8.341830045694136,
+        "ci_low": -704.7538277976616,
+        "ci_high": -672.054088869005,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 108132.57709929222,
+        "unit": "pair",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "ci_unit": "session",
+      "hands": 240000,
+      "opponents": 6,
+      "wins": 1,
+      "losses": 4,
+      "draws": 1,
+      "insufficient": 0,
+      "rank": 7
+    }
+  ],
+  "matrix": {
+    "EBM": {
+      "XGBoost": {
+        "n": 200,
+        "mean": 29.3625,
+        "se": 4.534109542176088,
+        "ci_low": 20.421433015951543,
+        "ci_high": 38.30356698404846,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "GA": {
+        "n": 200,
+        "mean": 74.065,
+        "se": 6.15262518020074,
+        "ci_low": 61.932290511575026,
+        "ci_high": 86.19770948842498,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "Teacher": {
+        "n": 200,
+        "mean": 36.9525,
+        "se": 5.12482668845332,
+        "ci_low": 26.846564473548433,
+        "ci_high": 47.05843552645157,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "Random": {
+        "n": 200,
+        "mean": 599.01625,
+        "se": 16.468040759283863,
+        "ci_low": 566.5419892537255,
+        "ci_high": 631.4905107462745,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "CallStation": {
+        "n": 200,
+        "mean": 722.255,
+        "se": 8.483331824479171,
+        "ci_low": 705.5262382916592,
+        "ci_high": 738.9837617083408,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "Maniac": {
+        "n": 200,
+        "mean": 1334.50375,
+        "se": 21.405998451736988,
+        "ci_low": 1292.2920512668545,
+        "ci_high": 1376.7154487331456,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      }
+    },
+    "XGBoost": {
+      "EBM": {
+        "n": 200,
+        "mean": -29.3625,
+        "se": 4.534109542176088,
+        "ci_low": -38.30356698404846,
+        "ci_high": -20.421433015951543,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "GA": {
+        "n": 200,
+        "mean": 82.795,
+        "se": 6.196330055426267,
+        "ci_low": 70.57610639685835,
+        "ci_high": 95.01389360314165,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "Teacher": {
+        "n": 200,
+        "mean": 3.4725,
+        "se": 2.6197649341690004,
+        "ci_low": -1.6935626063358233,
+        "ci_high": 8.638562606335825,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": false,
+        "significant": false
+      },
+      "Random": {
+        "n": 200,
+        "mean": 585.49625,
+        "se": 17.850377802180837,
+        "ci_low": 550.2960806756233,
+        "ci_high": 620.6964193243767,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "CallStation": {
+        "n": 200,
+        "mean": 692.93625,
+        "se": 8.531241359724673,
+        "ci_low": 676.1130127700997,
+        "ci_high": 709.7594872299003,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "Maniac": {
+        "n": 200,
+        "mean": 1318.33625,
+        "se": 19.14042564407514,
+        "ci_low": 1280.592162391402,
+        "ci_high": 1356.080337608598,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      }
+    },
+    "GA": {
+      "EBM": {
+        "n": 200,
+        "mean": -74.065,
+        "se": 6.15262518020074,
+        "ci_low": -86.19770948842498,
+        "ci_high": -61.932290511575026,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "XGBoost": {
+        "n": 200,
+        "mean": -82.795,
+        "se": 6.196330055426267,
+        "ci_low": -95.01389360314165,
+        "ci_high": -70.57610639685835,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "Teacher": {
+        "n": 200,
+        "mean": -74.74875,
+        "se": 6.578568327217315,
+        "ci_low": -87.7214008646635,
+        "ci_high": -61.77609913533651,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "Random": {
+        "n": 200,
+        "mean": 190.11875,
+        "se": 10.27388211428272,
+        "ci_low": 169.85910092986916,
+        "ci_high": 210.37839907013085,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "CallStation": {
+        "n": 200,
+        "mean": 661.32625,
+        "se": 9.502080273011869,
+        "ci_low": 642.5885606216287,
+        "ci_high": 680.0639393783712,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "Maniac": {
+        "n": 200,
+        "mean": 757.29,
+        "se": 17.703408084008704,
+        "ci_low": 722.3796485731796,
+        "ci_high": 792.2003514268204,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      }
+    },
+    "Teacher": {
+      "EBM": {
+        "n": 200,
+        "mean": -36.9525,
+        "se": 5.12482668845332,
+        "ci_low": -47.05843552645157,
+        "ci_high": -26.846564473548433,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "XGBoost": {
+        "n": 200,
+        "mean": -3.4725,
+        "se": 2.6197649341690004,
+        "ci_low": -8.638562606335825,
+        "ci_high": 1.6935626063358233,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": false,
+        "significant": false
+      },
+      "GA": {
+        "n": 200,
+        "mean": 74.74875,
+        "se": 6.578568327217315,
+        "ci_low": 61.77609913533651,
+        "ci_high": 87.7214008646635,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "Random": {
+        "n": 200,
+        "mean": 603.33375,
+        "se": 18.06381661556581,
+        "ci_low": 567.7126886107715,
+        "ci_high": 638.9548113892286,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "CallStation": {
+        "n": 200,
+        "mean": 705.065,
+        "se": 8.587341910067515,
+        "ci_low": 688.1311349227151,
+        "ci_high": 721.998865077285,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "Maniac": {
+        "n": 200,
+        "mean": 1357.66875,
+        "se": 20.417623891667596,
+        "ci_low": 1317.4060829487553,
+        "ci_high": 1397.9314170512448,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      }
+    },
+    "Random": {
+      "EBM": {
+        "n": 200,
+        "mean": -599.01625,
+        "se": 16.468040759283863,
+        "ci_low": -631.4905107462745,
+        "ci_high": -566.5419892537255,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "XGBoost": {
+        "n": 200,
+        "mean": -585.49625,
+        "se": 17.850377802180837,
+        "ci_low": -620.6964193243767,
+        "ci_high": -550.2960806756233,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "GA": {
+        "n": 200,
+        "mean": -190.11875,
+        "se": 10.27388211428272,
+        "ci_low": -210.37839907013085,
+        "ci_high": -169.85910092986916,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "Teacher": {
+        "n": 200,
+        "mean": -603.33375,
+        "se": 18.06381661556581,
+        "ci_low": -638.9548113892286,
+        "ci_high": -567.7126886107715,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "CallStation": {
+        "n": 200,
+        "mean": 0.7825,
+        "se": 21.2385743973296,
+        "ci_low": -41.09904577339184,
+        "ci_high": 42.66404577339184,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": false,
+        "significant": false
+      },
+      "Maniac": {
+        "n": 200,
+        "mean": -637.775,
+        "se": 28.139864692720593,
+        "ci_low": -693.2655903351692,
+        "ci_high": -582.2844096648307,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      }
+    },
+    "CallStation": {
+      "EBM": {
+        "n": 200,
+        "mean": -722.255,
+        "se": 8.483331824479171,
+        "ci_low": -738.9837617083408,
+        "ci_high": -705.5262382916592,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "XGBoost": {
+        "n": 200,
+        "mean": -692.93625,
+        "se": 8.531241359724673,
+        "ci_low": -709.7594872299003,
+        "ci_high": -676.1130127700997,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "GA": {
+        "n": 200,
+        "mean": -661.32625,
+        "se": 9.502080273011869,
+        "ci_low": -680.0639393783712,
+        "ci_high": -642.5885606216287,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "Teacher": {
+        "n": 200,
+        "mean": -705.065,
+        "se": 8.587341910067515,
+        "ci_low": -721.998865077285,
+        "ci_high": -688.1311349227151,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "Random": {
+        "n": 200,
+        "mean": -0.7825,
+        "se": 21.2385743973296,
+        "ci_low": -42.66404577339184,
+        "ci_high": 41.09904577339184,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": false,
+        "significant": false
+      },
+      "Maniac": {
+        "n": 200,
+        "mean": 0.4,
+        "se": 14.740248458662952,
+        "ci_low": -28.66712941195723,
+        "ci_high": 29.467129411957227,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": false,
+        "significant": false
+      }
+    },
+    "Maniac": {
+      "EBM": {
+        "n": 200,
+        "mean": -1334.50375,
+        "se": 21.405998451736988,
+        "ci_low": -1376.7154487331456,
+        "ci_high": -1292.2920512668545,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "XGBoost": {
+        "n": 200,
+        "mean": -1318.33625,
+        "se": 19.14042564407514,
+        "ci_low": -1356.080337608598,
+        "ci_high": -1280.592162391402,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "GA": {
+        "n": 200,
+        "mean": -757.29,
+        "se": 17.703408084008704,
+        "ci_low": -792.2003514268204,
+        "ci_high": -722.3796485731796,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "Teacher": {
+        "n": 200,
+        "mean": -1357.66875,
+        "se": 20.417623891667596,
+        "ci_low": -1397.9314170512448,
+        "ci_high": -1317.4060829487553,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "Random": {
+        "n": 200,
+        "mean": 637.775,
+        "se": 28.139864692720593,
+        "ci_low": 582.2844096648307,
+        "ci_high": 693.2655903351692,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "CallStation": {
+        "n": 200,
+        "mean": -0.4,
+        "se": 14.740248458662952,
+        "ci_low": -29.467129411957227,
+        "ci_high": 28.66712941195723,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": false,
+        "significant": false
+      }
+    }
+  },
+  "verdicts": {
+    "EBM": {
+      "XGBoost": {
+        "code": "win",
+        "text": "EBM > XGBoost (significant)"
+      },
+      "GA": {
+        "code": "win",
+        "text": "EBM > GA (significant)"
+      },
+      "Teacher": {
+        "code": "win",
+        "text": "EBM > Teacher (significant)"
+      },
+      "Random": {
+        "code": "win",
+        "text": "EBM > Random (significant)"
+      },
+      "CallStation": {
+        "code": "win",
+        "text": "EBM > CallStation (significant)"
+      },
+      "Maniac": {
+        "code": "win",
+        "text": "EBM > Maniac (significant)"
+      }
+    },
+    "XGBoost": {
+      "EBM": {
+        "code": "lose",
+        "text": "XGBoost < EBM (significant)"
+      },
+      "GA": {
+        "code": "win",
+        "text": "XGBoost > GA (significant)"
+      },
+      "Teacher": {
+        "code": "draw",
+        "text": "no significant difference"
+      },
+      "Random": {
+        "code": "win",
+        "text": "XGBoost > Random (significant)"
+      },
+      "CallStation": {
+        "code": "win",
+        "text": "XGBoost > CallStation (significant)"
+      },
+      "Maniac": {
+        "code": "win",
+        "text": "XGBoost > Maniac (significant)"
+      }
+    },
+    "GA": {
+      "EBM": {
+        "code": "lose",
+        "text": "GA < EBM (significant)"
+      },
+      "XGBoost": {
+        "code": "lose",
+        "text": "GA < XGBoost (significant)"
+      },
+      "Teacher": {
+        "code": "lose",
+        "text": "GA < Teacher (significant)"
+      },
+      "Random": {
+        "code": "win",
+        "text": "GA > Random (significant)"
+      },
+      "CallStation": {
+        "code": "win",
+        "text": "GA > CallStation (significant)"
+      },
+      "Maniac": {
+        "code": "win",
+        "text": "GA > Maniac (significant)"
+      }
+    },
+    "Teacher": {
+      "EBM": {
+        "code": "lose",
+        "text": "Teacher < EBM (significant)"
+      },
+      "XGBoost": {
+        "code": "draw",
+        "text": "no significant difference"
+      },
+      "GA": {
+        "code": "win",
+        "text": "Teacher > GA (significant)"
+      },
+      "Random": {
+        "code": "win",
+        "text": "Teacher > Random (significant)"
+      },
+      "CallStation": {
+        "code": "win",
+        "text": "Teacher > CallStation (significant)"
+      },
+      "Maniac": {
+        "code": "win",
+        "text": "Teacher > Maniac (significant)"
+      }
+    },
+    "Random": {
+      "EBM": {
+        "code": "lose",
+        "text": "Random < EBM (significant)"
+      },
+      "XGBoost": {
+        "code": "lose",
+        "text": "Random < XGBoost (significant)"
+      },
+      "GA": {
+        "code": "lose",
+        "text": "Random < GA (significant)"
+      },
+      "Teacher": {
+        "code": "lose",
+        "text": "Random < Teacher (significant)"
+      },
+      "CallStation": {
+        "code": "draw",
+        "text": "no significant difference"
+      },
+      "Maniac": {
+        "code": "lose",
+        "text": "Random < Maniac (significant)"
+      }
+    },
+    "CallStation": {
+      "EBM": {
+        "code": "lose",
+        "text": "CallStation < EBM (significant)"
+      },
+      "XGBoost": {
+        "code": "lose",
+        "text": "CallStation < XGBoost (significant)"
+      },
+      "GA": {
+        "code": "lose",
+        "text": "CallStation < GA (significant)"
+      },
+      "Teacher": {
+        "code": "lose",
+        "text": "CallStation < Teacher (significant)"
+      },
+      "Random": {
+        "code": "draw",
+        "text": "no significant difference"
+      },
+      "Maniac": {
+        "code": "draw",
+        "text": "no significant difference"
+      }
+    },
+    "Maniac": {
+      "EBM": {
+        "code": "lose",
+        "text": "Maniac < EBM (significant)"
+      },
+      "XGBoost": {
+        "code": "lose",
+        "text": "Maniac < XGBoost (significant)"
+      },
+      "GA": {
+        "code": "lose",
+        "text": "Maniac < GA (significant)"
+      },
+      "Teacher": {
+        "code": "lose",
+        "text": "Maniac < Teacher (significant)"
+      },
+      "Random": {
+        "code": "win",
+        "text": "Maniac > Random (significant)"
+      },
+      "CallStation": {
+        "code": "draw",
+        "text": "no significant difference"
+      }
+    }
+  },
+  "latency": {
+    "EBM": {
+      "n": 744283,
+      "mean_ms": 2.447118163964756,
+      "median_ms": 2.106100082397461,
+      "p95_ms": 4.565380096435551,
+      "max_ms": 106.55729675292969
+    },
+    "XGBoost": {
+      "n": 748701,
+      "mean_ms": 2.9235287265632275,
+      "median_ms": 2.6323001384735107,
+      "p95_ms": 5.189499855041504,
+      "max_ms": 173.90499877929688
+    },
+    "GA": {
+      "n": 661734,
+      "mean_ms": 0.36171290248326304,
+      "median_ms": 0.33180001378059387,
+      "p95_ms": 0.7617999911308289,
+      "max_ms": 79.22850036621094
+    },
+    "Teacher": {
+      "n": 748794,
+      "mean_ms": 0.9246747729538055,
+      "median_ms": 0.40460005402565,
+      "p95_ms": 2.052000045776367,
+      "max_ms": 300.67169189453125
+    },
+    "Random": {
+      "n": 505247,
+      "mean_ms": 0.0319563932135377,
+      "median_ms": 0.02519995905458927,
+      "p95_ms": 0.04620000347495079,
+      "max_ms": 71.67230224609375
+    },
+    "CallStation": {
+      "n": 1103072,
+      "mean_ms": 0.009020861338157226,
+      "median_ms": 0.006699992809444666,
+      "p95_ms": 0.014699995517730713,
+      "max_ms": 49.721900939941406
+    },
+    "Maniac": {
+      "n": 647465,
+      "mean_ms": 0.025383442311318477,
+      "median_ms": 0.0197999756783247,
+      "p95_ms": 0.037699997425079346,
+      "max_ms": 48.14569854736328
+    }
+  },
+  "meta": {
+    "created_at": "2026-10-11T20:44:25+02:00",
+    "wall_seconds": 400.7495398000465,
+    "cpu_seconds": 8316.431588099105,
+    "total_hands": 840000,
+    "hands_per_second": 2096.072276013385,
+    "n_workers_used": 21
+  }
+}

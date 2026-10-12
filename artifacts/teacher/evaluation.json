@@ -1,0 +1,210 @@
+{
+  "configuration": {
+    "RANDOM_SEED": 2024,
+    "STARTING_STACK": 1000,
+    "SMALL_BLIND": 5,
+    "BIG_BLIND": 10,
+    "NUM_PAIRS": 2000,
+    "OPPONENTS": [
+      "random",
+      "call_station",
+      "maniac",
+      "teacher:tight",
+      "teacher:loose",
+      "teacher:aggressive",
+      "teacher:passive",
+      "teacher"
+    ],
+    "N_WORKERS": 0,
+    "OUTPUT_FILE": "artifacts/teacher/evaluation.json"
+  },
+  "teacher_params": {
+    "push_fold_bb": 12.0,
+    "push_pct": 0.3,
+    "open_pct": 0.18,
+    "open_pot_pct": 0.88,
+    "limp_pct": 0.06,
+    "iso_pct": 0.6,
+    "iso_pot_pct": 0.9,
+    "threebet_pct": 0.82,
+    "fourbet_pct": 0.96,
+    "shove_pct": 0.985,
+    "pre_penalty_max": 0.12,
+    "pre_penalty_half": 1.0,
+    "pre_raise_penalty": 0.1,
+    "pre_call_margin": 0.03,
+    "pre_pfr_slope": 0.5,
+    "deep_stack_bb": 40.0,
+    "value_equity": 0.57,
+    "value_fold_slope": 0.4,
+    "pot_bet_equity": 0.84,
+    "wet_pot_equity": 0.76,
+    "monster_equity": 0.93,
+    "shove_spr": 2.5,
+    "semi_bluff_outs": 8,
+    "semi_bluff_min_fold": 0.15,
+    "cbet_min_equity": 0.38,
+    "cbet_min_fold": 0.35,
+    "penalty_max": 0.6,
+    "penalty_half": 0.25,
+    "raise_penalty": 0.06,
+    "penalty_relief_equity": 0.7,
+    "draw_credit": 0.12,
+    "aggression_slope": 0.8,
+    "call_margin": 0.03,
+    "oop_margin": 0.02,
+    "raise_equity": 0.86,
+    "raise_extra": 0.04
+  },
+  "results": [
+    {
+      "a": "teacher",
+      "b": "random",
+      "pairs": 2000,
+      "hands": 4000,
+      "bb_per_100": 706.0374999999999,
+      "ci95_pairs": [
+        597.7890763340911,
+        814.2859236659089
+      ],
+      "std_error": 55.19636197009946,
+      "matches": 40,
+      "ci95_matches": [
+        593.4395031383241,
+        818.6354968616758
+      ]
+    },
+    {
+      "a": "teacher",
+      "b": "call_station",
+      "pairs": 2000,
+      "hands": 4000,
+      "bb_per_100": 716.2375,
+      "ci95_pairs": [
+        660.6141781095441,
+        771.8608218904558
+      ],
+      "std_error": 28.36258399956607,
+      "matches": 40,
+      "ci95_matches": [
+        668.6922784393986,
+        763.7827215606013
+      ]
+    },
+    {
+      "a": "teacher",
+      "b": "maniac",
+      "pairs": 2000,
+      "hands": 4000,
+      "bb_per_100": 1346.55,
+      "ci95_pairs": [
+        1217.4530316662788,
+        1475.6469683337214
+      ],
+      "std_error": 65.82712941282922,
+      "matches": 40,
+      "ci95_matches": [
+        1210.4836890140318,
+        1482.6163109859683
+      ]
+    },
+    {
+      "a": "teacher",
+      "b": "teacher_tight",
+      "pairs": 2000,
+      "hands": 4000,
+      "bb_per_100": -16.037499999999998,
+      "ci95_pairs": [
+        -46.323612183347386,
+        14.248612183347387
+      ],
+      "std_error": 15.443025903993382,
+      "matches": 40,
+      "ci95_matches": [
+        -46.97928056756492,
+        14.904280567564921
+      ]
+    },
+    {
+      "a": "teacher",
+      "b": "teacher_loose",
+      "pairs": 2000,
+      "hands": 4000,
+      "bb_per_100": 345.9625,
+      "ci95_pairs": [
+        283.10686098010456,
+        408.81813901989545
+      ],
+      "std_error": 32.05037529148508,
+      "matches": 40,
+      "ci95_matches": [
+        282.5539605154368,
+        409.37103948456314
+      ]
+    },
+    {
+      "a": "teacher",
+      "b": "teacher_aggressive",
+      "pairs": 2000,
+      "hands": 4000,
+      "bb_per_100": 134.2875,
+      "ci95_pairs": [
+        81.06417422371737,
+        187.51082577628264
+      ],
+      "std_error": 27.138815100597284,
+      "matches": 40,
+      "ci95_matches": [
+        63.68638604200285,
+        204.88861395799717
+      ]
+    },
+    {
+      "a": "teacher",
+      "b": "teacher_passive",
+      "pairs": 2000,
+      "hands": 4000,
+      "bb_per_100": 368.675,
+      "ci95_pairs": [
+        321.9890177663239,
+        415.36098223367605
+      ],
+      "std_error": 23.805393991258356,
+      "matches": 40,
+      "ci95_matches": [
+        316.9617803863292,
+        420.3882196136708
+      ]
+    },
+    {
+      "a": "teacher",
+      "b": "teacher",
+      "pairs": 2000,
+      "hands": 4000,
+      "bb_per_100": -26.674999999999997,
+      "ci95_pairs": [
+        -51.027016112532685,
+        -2.3229838874673057
+      ],
+      "std_error": 12.417203415335873,
+      "matches": 40,
+      "ci95_matches": [
+        -64.75377512883617,
+        11.40377512883617
+      ]
+    }
+  ],
+  "libraries": {
+    "python": "3.13.2",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "pyarrow": "25.0.1",
+    "pokerkit": "0.7.6",
+    "scikit-learn": "1.9.1",
+    "interpret": "0.7.8",
+    "xgboost": "3.4.1"
+  },
+  "created_at": "2026-10-11T13:33:57+00:00",
+  "seconds": 43.30588060000446
+}

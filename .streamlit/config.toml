@@ -1,0 +1,17 @@
+# Shared "poker night" theme: dark base, green accent. Extra component CSS lives in
+# src/poker_arena/ui/theme.py and is injected by every page.
+[theme]
+base = "dark"
+primaryColor = "#2ecc71"
+backgroundColor = "#0b1210"
+secondaryBackgroundColor = "#141f1a"
+textColor = "#e9f1ec"
+font = "sans-serif"
+baseRadius = "0.75rem"
+borderColor = "#2a3f34"
+
+[browser]
+gatherUsageStats = false
+
+[client]
+toolbarMode = "minimal"

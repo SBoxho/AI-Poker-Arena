@@ -1,0 +1,454 @@
+{
+  "a": "EBM",
+  "b": "Random",
+  "key": "EBM__vs__Random",
+  "num_hands": 40000,
+  "num_units": 20000,
+  "unit": "pair",
+  "protocol": "two_table",
+  "hands_per_unit": 2,
+  "big_blind": 10,
+  "seed": 42,
+  "variance": {
+    "hand_sd_bb": 37.70034323279551,
+    "unit_sd_bb": 47.353580313137876,
+    "se_ratio": 0.8881626765602981,
+    "session_over_pair_se": 0.9836352999492511
+  },
+  "cpu_seconds": 332.0749173001386,
+  "players": {
+    "a": {
+      "label": "EBM",
+      "opponent": "Random",
+      "net_bb": 239606.5,
+      "tally": {
+        "hands": 40000,
+        "hands_won": 15339,
+        "showdowns": 6914,
+        "showdowns_won": 4690,
+        "vpip_hands": 29239,
+        "pfr_hands": 19257,
+        "three_bet": 1327,
+        "three_bet_opportunity": 13718,
+        "action_counts": {
+          "preflop": {
+            "fold": 8163,
+            "check": 2409,
+            "call": 19153,
+            "bet": 0,
+            "raise": 19879
+          },
+          "flop": {
+            "fold": 9509,
+            "check": 7716,
+            "call": 6282,
+            "bet": 5435,
+            "raise": 424
+          },
+          "turn": {
+            "fold": 3448,
+            "check": 2829,
+            "call": 3420,
+            "bet": 2921,
+            "raise": 337
+          },
+          "river": {
+            "fold": 1317,
+            "check": 1114,
+            "call": 1413,
+            "bet": 1450,
+            "raise": 178
+          }
+        },
+        "end_hands": {
+          "preflop": 16170,
+          "flop": 10774,
+          "turn": 4247,
+          "river": 1895,
+          "showdown": 6914
+        },
+        "end_profit_bb": {
+          "preflop": -674.5,
+          "flop": -23255.0,
+          "turn": -4712.0,
+          "river": 8339.0,
+          "showdown": 259909.0
+        }
+      },
+      "metrics": {
+        "hands": 40000.0,
+        "win_rate": 0.383475,
+        "showdown_rate": 0.17285,
+        "showdown_win_rate": 0.6783338154469193,
+        "vpip": 0.730975,
+        "pfr": 0.481425,
+        "three_bet": 0.09673421781600816,
+        "aggression_factor": 1.0117615964054447,
+        "aggression_factor_postflop": 0.9667116509221773,
+        "aggression_freq_postflop": 0.22482371895465864,
+        "fold_freq": 0.23036643839132623,
+        "call_freq": 0.45520909268252613,
+        "raise_freq": 0.3144244689261476
+      },
+      "win_rate_ci": [
+        0.37872141549174493,
+        0.3882509636584946
+      ],
+      "showdown_win_rate_ci": [
+        0.6672268789181728,
+        0.6892426953961808
+      ],
+      "per_street": [
+        {
+          "street": "preflop",
+          "decisions": 49604,
+          "fold": 8163,
+          "check": 2409,
+          "call": 19153,
+          "bet": 0,
+          "raise": 19879,
+          "fold_freq": 0.16456334166599468,
+          "call_freq": 0.4346826868800903,
+          "raise_freq": 0.400753971453915,
+          "aggression_factor": 1.0379052889886702
+        },
+        {
+          "street": "flop",
+          "decisions": 29366,
+          "fold": 9509,
+          "check": 7716,
+          "call": 6282,
+          "bet": 5435,
+          "raise": 424,
+          "fold_freq": 0.32380984812368047,
+          "call_freq": 0.4766737042838657,
+          "raise_freq": 0.19951644759245385,
+          "aggression_factor": 0.9326647564469914
+        },
+        {
+          "street": "turn",
+          "decisions": 12955,
+          "fold": 3448,
+          "check": 2829,
+          "call": 3420,
+          "bet": 2921,
+          "raise": 337,
+          "fold_freq": 0.26615206483983017,
+          "call_freq": 0.48236202238517945,
+          "raise_freq": 0.25148591277499033,
+          "aggression_factor": 0.9526315789473684
+        },
+        {
+          "street": "river",
+          "decisions": 5472,
+          "fold": 1317,
+          "check": 1114,
+          "call": 1413,
+          "bet": 1450,
+          "raise": 178,
+          "fold_freq": 0.24067982456140352,
+          "call_freq": 0.4618055555555556,
+          "raise_freq": 0.29751461988304095,
+          "aggression_factor": 1.1521585279547062
+        }
+      ],
+      "profit_by_end": [
+        {
+          "ended": "preflop",
+          "hands": 16170,
+          "share_of_hands": 0.40425,
+          "profit_bb": -674.5,
+          "bb_per_hand": -0.041713048855906,
+          "bb_per_100_contribution": -1.68625
+        },
+        {
+          "ended": "flop",
+          "hands": 10774,
+          "share_of_hands": 0.26935,
+          "profit_bb": -23255.0,
+          "bb_per_hand": -2.158436977909783,
+          "bb_per_100_contribution": -58.1375
+        },
+        {
+          "ended": "turn",
+          "hands": 4247,
+          "share_of_hands": 0.106175,
+          "profit_bb": -4712.0,
+          "bb_per_hand": -1.1094890510948905,
+          "bb_per_100_contribution": -11.78
+        },
+        {
+          "ended": "river",
+          "hands": 1895,
+          "share_of_hands": 0.047375,
+          "profit_bb": 8339.0,
+          "bb_per_hand": 4.400527704485488,
+          "bb_per_100_contribution": 20.8475
+        },
+        {
+          "ended": "showdown",
+          "hands": 6914,
+          "share_of_hands": 0.17285,
+          "profit_bb": 259909.0,
+          "bb_per_hand": 37.59169800404975,
+          "bb_per_100_contribution": 649.7725
+        }
+      ],
+      "latency": {
+        "n": 97397,
+        "mean_ms": 2.4311597951653323,
+        "median_ms": 1.9714000225067139,
+        "p95_ms": 4.347320079803467,
+        "max_ms": 83.27400207519531
+      },
+      "bb_per_100": {
+        "n": 200,
+        "mean": 599.01625,
+        "se": 16.468040759283863,
+        "ci_low": 566.5419892537255,
+        "ci_high": 631.4905107462745,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "bb_per_100_pair": {
+        "n": 20000,
+        "mean": 599.01625,
+        "se": 16.742018876440792,
+        "ci_low": 566.200509925751,
+        "ci_high": 631.831990074249,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 19999.0,
+        "unit": "pair",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "verdict": {
+        "code": "win",
+        "text": "EBM > Random (significant)"
+      }
+    },
+    "b": {
+      "label": "Random",
+      "opponent": "EBM",
+      "net_bb": -239606.5,
+      "tally": {
+        "hands": 40000,
+        "hands_won": 24497,
+        "showdowns": 6914,
+        "showdowns_won": 2060,
+        "vpip_hands": 30885,
+        "pfr_hands": 24625,
+        "three_bet": 10907,
+        "three_bet_opportunity": 17930,
+        "action_counts": {
+          "preflop": {
+            "fold": 8007,
+            "check": 652,
+            "call": 8047,
+            "bet": 0,
+            "raise": 25573
+          },
+          "flop": {
+            "fold": 1265,
+            "check": 4396,
+            "call": 1260,
+            "bet": 12881,
+            "raise": 3334
+          },
+          "turn": {
+            "fold": 799,
+            "check": 1849,
+            "call": 837,
+            "bet": 5583,
+            "raise": 1622
+          },
+          "river": {
+            "fold": 578,
+            "check": 923,
+            "call": 561,
+            "bet": 2419,
+            "raise": 489
+          }
+        },
+        "end_hands": {
+          "preflop": 16170,
+          "flop": 10774,
+          "turn": 4247,
+          "river": 1895,
+          "showdown": 6914
+        },
+        "end_profit_bb": {
+          "preflop": 674.5,
+          "flop": 23255.0,
+          "turn": 4712.0,
+          "river": -8339.0,
+          "showdown": -259909.0
+        }
+      },
+      "metrics": {
+        "hands": 40000.0,
+        "win_rate": 0.612425,
+        "showdown_rate": 0.17285,
+        "showdown_win_rate": 0.2979461961238068,
+        "vpip": 0.772125,
+        "pfr": 0.615625,
+        "three_bet": 0.6083100948131623,
+        "aggression_factor": 4.848295189163942,
+        "aggression_factor_postflop": 9.905191873589164,
+        "aggression_freq_postflop": 0.6786266625425301,
+        "fold_freq": 0.13134751773049647,
+        "call_freq": 0.22849213691026826,
+        "raise_freq": 0.6401603453592353
+      },
+      "win_rate_ci": [
+        0.6076399812985221,
+        0.6171884269746754
+      ],
+      "showdown_win_rate_ci": [
+        0.2872803398824219,
+        0.3088364522366763
+      ],
+      "per_street": [
+        {
+          "street": "preflop",
+          "decisions": 42279,
+          "fold": 8007,
+          "check": 652,
+          "call": 8047,
+          "bet": 0,
+          "raise": 25573,
+          "fold_freq": 0.18938480096501809,
+          "call_freq": 0.20575226471770855,
+          "raise_freq": 0.6048629343172733,
+          "aggression_factor": 3.1779545172113832
+        },
+        {
+          "street": "flop",
+          "decisions": 23136,
+          "fold": 1265,
+          "check": 4396,
+          "call": 1260,
+          "bet": 12881,
+          "raise": 3334,
+          "fold_freq": 0.054676694329183956,
+          "call_freq": 0.24446749654218533,
+          "raise_freq": 0.7008558091286307,
+          "aggression_factor": 12.869047619047619
+        },
+        {
+          "street": "turn",
+          "decisions": 10690,
+          "fold": 799,
+          "check": 1849,
+          "call": 837,
+          "bet": 5583,
+          "raise": 1622,
+          "fold_freq": 0.07474275023386343,
+          "call_freq": 0.2512628624883068,
+          "raise_freq": 0.6739943872778298,
+          "aggression_factor": 8.608124253285544
+        },
+        {
+          "street": "river",
+          "decisions": 4970,
+          "fold": 578,
+          "check": 923,
+          "call": 561,
+          "bet": 2419,
+          "raise": 489,
+          "fold_freq": 0.11629778672032193,
+          "call_freq": 0.29859154929577464,
+          "raise_freq": 0.5851106639839034,
+          "aggression_factor": 5.183600713012478
+        }
+      ],
+      "profit_by_end": [
+        {
+          "ended": "preflop",
+          "hands": 16170,
+          "share_of_hands": 0.40425,
+          "profit_bb": 674.5,
+          "bb_per_hand": 0.041713048855906,
+          "bb_per_100_contribution": 1.68625
+        },
+        {
+          "ended": "flop",
+          "hands": 10774,
+          "share_of_hands": 0.26935,
+          "profit_bb": 23255.0,
+          "bb_per_hand": 2.158436977909783,
+          "bb_per_100_contribution": 58.1375
+        },
+        {
+          "ended": "turn",
+          "hands": 4247,
+          "share_of_hands": 0.106175,
+          "profit_bb": 4712.0,
+          "bb_per_hand": 1.1094890510948905,
+          "bb_per_100_contribution": 11.78
+        },
+        {
+          "ended": "river",
+          "hands": 1895,
+          "share_of_hands": 0.047375,
+          "profit_bb": -8339.0,
+          "bb_per_hand": -4.400527704485488,
+          "bb_per_100_contribution": -20.8475
+        },
+        {
+          "ended": "showdown",
+          "hands": 6914,
+          "share_of_hands": 0.17285,
+          "profit_bb": -259909.0,
+          "bb_per_hand": -37.59169800404975,
+          "bb_per_100_contribution": -649.7725
+        }
+      ],
+      "latency": {
+        "n": 81075,
+        "mean_ms": 0.03759138704383544,
+        "median_ms": 0.03060000017285347,
+        "p95_ms": 0.048099957406520844,
+        "max_ms": 36.57849884033203
+      },
+      "bb_per_100": {
+        "n": 200,
+        "mean": -599.01625,
+        "se": 16.468040759283863,
+        "ci_low": -631.4905107462745,
+        "ci_high": -566.5419892537255,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 199.0,
+        "unit": "session",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "bb_per_100_pair": {
+        "n": 20000,
+        "mean": -599.01625,
+        "se": 16.742018876440792,
+        "ci_low": -631.831990074249,
+        "ci_high": -566.200509925751,
+        "confidence": 0.95,
+        "method": "t",
+        "df": 19999.0,
+        "unit": "pair",
+        "excludes_zero": true,
+        "significant": true
+      },
+      "verdict": {
+        "code": "lose",
+        "text": "Random < EBM (significant)"
+      }
+    }
+  },
+  "ci_unit_used": "session",
+  "ci_units": 200,
+  "num_sessions": 200
+}

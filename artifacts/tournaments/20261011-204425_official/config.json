@@ -1,0 +1,410 @@
+{
+  "schema_version": 2,
+  "run_id": "20261011-204425_official",
+  "run_name": "official",
+  "created_at": "2026-10-11T20:44:25+02:00",
+  "match_config": {
+    "game": {
+      "starting_stack": 1000,
+      "small_blind": 5,
+      "big_blind": 10
+    },
+    "num_hands": 40000,
+    "seed": 42,
+    "duplicate": true,
+    "session_hands": 200,
+    "keep_hands": {
+      "first": 10,
+      "biggest_pots": 5,
+      "biggest_wins_each": 5,
+      "all_hands": false
+    },
+    "n_workers": 0,
+    "confidence": 0.95,
+    "ci_method": "t",
+    "bootstrap_resamples": 2000,
+    "ci_unit": "session",
+    "protocol": "two_table"
+  },
+  "agents": [
+    {
+      "label": "EBM",
+      "slug": "EBM",
+      "spec": {
+        "kind": "ebm",
+        "params": {},
+        "label": "EBM"
+      },
+      "describe": {
+        "name": "EBM",
+        "architecture": "Explainable Boosting Machine",
+        "description": "Additive model of readable shape functions (plus a few pairwise interactions) trained to imitate the equity / pot-odds teacher; every decision decomposes into per-term contributions.",
+        "supports_explanations": true,
+        "decision_mode": "greedy",
+        "model_fingerprint": "14f92a9cff80694b",
+        "trained_at": "2026-10-11T14:52:13+00:00",
+        "feature_schema_hash": "9dfcba73264b60de",
+        "n_terms": 85,
+        "n_interaction_terms": 40,
+        "dagger_round": 3
+      }
+    },
+    {
+      "label": "XGBoost",
+      "slug": "XGBoost",
+      "spec": {
+        "kind": "xgboost",
+        "params": {},
+        "label": "XGBoost"
+      },
+      "describe": {
+        "name": "XGBoost",
+        "architecture": "XGBoost",
+        "description": "Gradient-boosted decision trees trained to imitate the transparent equity teacher; every decision can be explained after the fact with exact TreeSHAP feature contributions.",
+        "supports_explanations": true,
+        "decision_mode": "greedy",
+        "model_fingerprint": "08cee062881516f1",
+        "trained_at": "2026-10-11T14:49:52+00:00",
+        "feature_schema_hash": "9dfcba73264b60de"
+      }
+    },
+    {
+      "label": "GA",
+      "slug": "GA",
+      "spec": {
+        "kind": "ga",
+        "params": {},
+        "label": "GA"
+      },
+      "describe": {
+        "name": "GA",
+        "architecture": "Genetic Algorithm",
+        "description": "Strategy evolved through self-play: a few readable genes (thresholds, bluff rates, sizing).",
+        "supports_explanations": true,
+        "genome": {
+          "pf_play_btn": 0.40371804190198773,
+          "pf_open_raise": 0.4179489702388651,
+          "pf_bb_raise": 0.4548408565903232,
+          "pf_defend": 0.4039261036318468,
+          "pf_3bet": 0.630884254145261,
+          "pf_shove": 0.9182665041520348,
+          "value_bet": 0.5896253663166553,
+          "value_raise": 0.8509137581042515,
+          "shove_threshold": 0.932794878962248,
+          "call_margin": 0.03832648904630863,
+          "fold_big_bet": 0.22932945509807554,
+          "deep_stack_caution": 0.055181005050031554,
+          "position_bonus": -0.0047268592743549415,
+          "bluff_freq": 0.024213817899795848,
+          "semi_bluff_freq": 0.4623664944477683,
+          "big_bet_prob": 0.3292788156946987,
+          "adapt_fold": 0.6270711317116979,
+          "adapt_aggression": -0.18720421253059272
+        },
+        "strategy": [
+          "Button, first to act: fold below equity 0.40, limp up to 0.42, raise at or above 0.42.",
+          "Big blind vs a limp: raise with equity >= 0.45, otherwise check.",
+          "Preflop vs a raise: call with equity >= 0.40 (and pot odds +0.04), 3-bet at >= 0.63, jam all-in at >= 0.92.",
+          "Postflop (adjusted equity): bet for value at >= 0.59; facing a bet, raise at >= 0.85, go all-in at >= 0.93.",
+          "Facing a bet: call when equity >= pot odds +0.04 + 0.23 per pot-size of the bet.",
+          "Adjusted equity = equity -0.00 in position (+0.00 out of position) minus up to 0.06 for deep stacks.",
+          "Bluffs 2% of weak hands when checked to; semi-bluffs 46% of flush/straight draws.",
+          "Bet sizing: pot-size 33% of the time, otherwise half pot.",
+          "Adaptation: bluff frequency +0.63 per +1.0 opponent fold-to-bet above neutral; call margin -0.19 per +1.0 opponent aggression above neutral."
+        ],
+        "equity_samples": 120,
+        "training": {
+          "generations": 40,
+          "population_size": 40,
+          "hands_per_evaluation": 3000,
+          "training_opponents": [
+            "random",
+            "call_station",
+            "maniac",
+            "nit",
+            "tag",
+            "lag",
+            "passive",
+            "maniac-ish"
+          ],
+          "validation_opponents": [
+            "random",
+            "call_station",
+            "maniac",
+            "balanced",
+            "bluffer",
+            "teacher"
+          ],
+          "final_selection_fitness_bb100": 100.72288136166536,
+          "last_generation_validation": {
+            "fitness": 130.48881155606125,
+            "raw_mean_bb100": 177.33333333333334,
+            "per_opponent": {
+              "random": 60.166666666666664,
+              "call_station": 470.0,
+              "maniac": 306.6666666666667,
+              "balanced": 122.33333333333333,
+              "bluffer": 6.0,
+              "teacher": 98.83333333333333
+            }
+          },
+          "reference_validation_fitness": {
+            "tag": 150.55974136703676,
+            "lag": 34.172671316654096,
+            "nit": 55.202550628522715
+          },
+          "population_validation_fitness": {
+            "initial": {
+              "mean": 73.2462868577314,
+              "median": 72.9421463012047,
+              "max": 158.04910550258833,
+              "genomes": [
+                150.55974136703676,
+                34.172671316654096,
+                55.202550628522715,
+                72.24893327469273,
+                36.79476168325211,
+                54.33992631682878,
+                102.25656111527142,
+                -6.344851211890462,
+                81.50203501601924,
+                76.1899604229544,
+                48.09970643246976,
+                73.63535932771667,
+                60.749633090529166,
+                158.04910550258833,
+                -31.987185216074764,
+                41.464094027332926,
+                109.89241625972129,
+                118.58164719735123,
+                117.27748587594907,
+                112.45388505072118,
+                40.95469070107302,
+                95.13320514343535,
+                103.10042698872651,
+                59.25282829175216,
+                42.219648795525536,
+                15.908855659645454,
+                88.57478938726486,
+                95.61353526785142,
+                46.75049933154214,
+                133.89229939781885,
+                29.50846466128621,
+                97.61725501818341,
+                8.41682550016313,
+                95.98888936139576,
+                85.88341423641732,
+                132.44747242435562,
+                55.59210035883681,
+                62.8629295240549,
+                114.03168774871001,
+                60.96321903357127
+              ]
+            },
+            "final": {
+              "mean": 134.48077119545331,
+              "median": 138.67882776592475,
+              "max": 191.10948480430247,
+              "genomes": [
+                123.50758988257137,
+                137.11618513574905,
+                167.37675447491947,
+                163.01296903762733,
+                140.57528947921264,
+                126.43721735179103,
+                95.17078008658193,
+                113.03112191381338,
+                77.5406194909631,
+                113.02416092058799,
+                115.71929423737608,
+                124.87769605807932,
+                140.02087575985524,
+                148.234312766025,
+                191.10948480430247,
+                151.19607006509844,
+                140.10269061572419,
+                137.33677977199426,
+                145.3614234046894,
+                168.92269866984518,
+                141.6618354597468,
+                140.27067701596778,
+                130.48881155606125,
+                123.19034545960936,
+                156.44787702264043,
+                135.01811587643257,
+                134.5610898699348,
+                124.89353557819025,
+                143.51730901904406,
+                127.58567906301447,
+                119.62967522549998,
+                168.48420720819536,
+                136.4153106030395,
+                171.79877611253414,
+                142.76101566769916,
+                156.56539571372537,
+                143.60744621526604,
+                159.45081996927507,
+                70.81594325489449,
+                32.392968000554326
+              ]
+            }
+          },
+          "fitness": {
+            "worst_case_weight": 0.25,
+            "profit_saturation_bb100": 300.0,
+            "max_all_in_share": 0.25,
+            "min_vpip": 0.15,
+            "degeneracy_penalty_bb100": 200.0
+          }
+        }
+      }
+    },
+    {
+      "label": "Teacher",
+      "slug": "Teacher",
+      "spec": {
+        "kind": "teacher",
+        "params": {},
+        "label": "Teacher"
+      },
+      "describe": {
+        "name": "Teacher",
+        "architecture": "Rule-based (equity + pot odds)",
+        "description": "Transparent reference policy: equity against a random hand, corrected for the opponent's betting range, compared with pot odds; position-aware preflop ranges.",
+        "supports_explanations": true
+      }
+    },
+    {
+      "label": "Random",
+      "slug": "Random",
+      "spec": {
+        "kind": "random",
+        "params": {},
+        "label": "Random"
+      },
+      "describe": {
+        "name": "Random",
+        "architecture": "Random",
+        "description": "Uniformly random over legal fold / call / half-pot / pot / all-in.",
+        "supports_explanations": true
+      }
+    },
+    {
+      "label": "CallStation",
+      "slug": "CallStation",
+      "spec": {
+        "kind": "call_station",
+        "params": {},
+        "label": "CallStation"
+      },
+      "describe": {
+        "name": "CallStation",
+        "architecture": "Rule-based",
+        "description": "Calling station - always check/call.",
+        "supports_explanations": true
+      }
+    },
+    {
+      "label": "Maniac",
+      "slug": "Maniac",
+      "spec": {
+        "kind": "maniac",
+        "params": {},
+        "label": "Maniac"
+      },
+      "describe": {
+        "name": "Maniac",
+        "architecture": "Rule-based",
+        "description": "Maniac - pot-sized bet/raise whenever possible, otherwise call.",
+        "supports_explanations": true
+      }
+    }
+  ],
+  "seeds": {
+    "namespace": "eval",
+    "master_seed": 42,
+    "deals": "Deal.from_seed(derive_seed(\"eval\", seed, match_key, pair_index))",
+    "agents": "agent.reset(derive_seed(\"eval\", seed, match_key, \"agent\", label, session_index, \"table\", t)) for table t in {0, 1}; the legacy single_table protocol omits the last two parts",
+    "protocol": "two_table",
+    "match_key": "the two agent labels, sorted, joined by \"__vs__\""
+  },
+  "environment": {
+    "python": "3.13.2",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "libraries": {
+      "poker-arena": "0.1.0",
+      "pokerkit": "0.7.6",
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "interpret": "0.7.8",
+      "xgboost": "3.4.1",
+      "shap": "0.53.0",
+      "joblib": "1.6.0"
+    }
+  },
+  "script_config": {
+    "script": "scripts/run_tournament.py",
+    "config": {
+      "RANDOM_SEED": 42,
+      "STARTING_STACK": 1000,
+      "SMALL_BLIND": 5,
+      "BIG_BLIND": 10,
+      "NUM_TOURNAMENT_HANDS": 40000,
+      "DUPLICATE_DEALS": true,
+      "SESSION_HANDS": 200,
+      "CONFIDENCE_LEVEL": 0.95,
+      "CI_METHOD": "t",
+      "BOOTSTRAP_RESAMPLES": 2000,
+      "CI_UNIT": "session",
+      "PROTOCOL": "two_table",
+      "N_WORKERS": 0,
+      "AGENTS": [
+        [
+          "ebm",
+          {},
+          "EBM"
+        ],
+        [
+          "xgboost",
+          {},
+          "XGBoost"
+        ],
+        [
+          "ga",
+          {},
+          "GA"
+        ],
+        [
+          "teacher",
+          {},
+          "Teacher"
+        ],
+        [
+          "random",
+          {},
+          "Random"
+        ],
+        [
+          "call_station",
+          {},
+          "CallStation"
+        ],
+        [
+          "maniac",
+          {},
+          "Maniac"
+        ]
+      ],
+      "REQUIRE_ALL_AGENTS": false,
+      "KEEP_FIRST_HANDS": 10,
+      "KEEP_BIGGEST_POTS": 5,
+      "KEEP_BIGGEST_WINS": 5,
+      "KEEP_FULL_HISTORY": false,
+      "RUN_NAME": "official",
+      "OUT_DIR": null,
+      "MARK_LATEST": true
+    }
+  }
+}

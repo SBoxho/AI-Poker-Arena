@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Large / regenerable artifacts (small trained models + demo tournament results ARE committed)
+artifacts/datasets/*
+!artifacts/datasets/.gitkeep
+artifacts/tmp/
+*.parquet
+hands_full*.jsonl*
+*.log
+
+# Claude Code local tooling
+.claude/

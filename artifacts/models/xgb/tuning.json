@@ -1,0 +1,300 @@
+{
+  "created_at": "2026-10-11T14:34:56+00:00",
+  "method": "one factor at a time around the configured values; early stopping on the validation split",
+  "metrics": "legal-masked imitation metrics on the hand-disjoint validation split of the behaviour-cloning data",
+  "caveat": "imitation agreement with the teacher, not poker skill; the tournament eval seeds were never used",
+  "dataset": "teacher_bc_v2",
+  "library_versions": {
+    "python": "3.13.2",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "pyarrow": "25.0.1",
+    "pokerkit": "0.7.6",
+    "scikit-learn": "1.9.1",
+    "interpret": "0.7.8",
+    "xgboost": "3.4.1",
+    "shap": "0.53.0"
+  },
+  "script_configuration": {
+    "RANDOM_SEED": 42,
+    "STARTING_STACK": 1000,
+    "SMALL_BLIND": 5,
+    "BIG_BLIND": 10,
+    "DATASET_NAME": "teacher_bc_v2",
+    "DATASETS_DIR": "artifacts/datasets",
+    "MAX_TRAIN_ROWS": 150000,
+    "CLASS_WEIGHT_POWER": 0.5,
+    "XGB_N_ESTIMATORS": 1500,
+    "XGB_MAX_DEPTH": 8,
+    "XGB_LEARNING_RATE": 0.1,
+    "XGB_SUBSAMPLE": 1.0,
+    "XGB_COLSAMPLE_BYTREE": 1.0,
+    "XGB_MIN_CHILD_WEIGHT": 1.0,
+    "XGB_REG_LAMBDA": 1.0,
+    "XGB_MAX_BIN": 1024,
+    "XGB_EARLY_STOPPING_ROUNDS": 40,
+    "N_JOBS": 10,
+    "DAGGER_ROUNDS": 3,
+    "DAGGER_HANDS_PER_ROUND": 12000,
+    "DAGGER_TEACHER_BETA": 0.5,
+    "DAGGER_N_WORKERS": 10,
+    "VALIDATION_OPPONENTS": [
+      "teacher",
+      "call_station",
+      "maniac",
+      "random"
+    ],
+    "VALIDATION_PAIRS": 1000,
+    "VALIDATION_ON_POLICY_HANDS": 4000,
+    "EVAL_N_WORKERS": 10,
+    "SHAP_SAMPLE_ROWS": 3000,
+    "TUNING_GRID": {
+      "max_bin": [
+        256,
+        512,
+        2048
+      ],
+      "max_depth": [
+        6,
+        10
+      ],
+      "learning_rate": [
+        0.05,
+        0.2
+      ],
+      "min_child_weight": [
+        5.0
+      ],
+      "reg_lambda": [
+        0.1,
+        10.0
+      ],
+      "subsample": [
+        0.8
+      ],
+      "colsample_bytree": [
+        0.8
+      ],
+      "class_weight_power": [
+        0.0,
+        1.0
+      ],
+      "max_train_rows": [
+        null
+      ]
+    },
+    "OUTPUT_DIR": "artifacts/models/xgb",
+    "WORK_DIR": "artifacts/tmp/xgb_rounds",
+    "FIGURES_DIR": "artifacts/figures",
+    "SAVE_FIGURES": true
+  },
+  "results": [
+    {
+      "variant": "configured",
+      "change": {},
+      "n_train_rows": 150000,
+      "trees_per_class": 436,
+      "fit_seconds": 42.30723949999083,
+      "masked_accuracy": 0.9973975629261151,
+      "masked_macro_f1": 0.995809261945435,
+      "masked_balanced_accuracy": 0.9961775737002829,
+      "log_loss": 0.007007031271896818
+    },
+    {
+      "variant": "max_bin=256",
+      "change": {
+        "max_bin": 256
+      },
+      "n_train_rows": 150000,
+      "trees_per_class": 270,
+      "fit_seconds": 21.560279799974523,
+      "masked_accuracy": 0.9959201377122952,
+      "masked_macro_f1": 0.9930131450776184,
+      "masked_balanced_accuracy": 0.9942275007243125,
+      "log_loss": 0.011295398546769543
+    },
+    {
+      "variant": "max_bin=512",
+      "change": {
+        "max_bin": 512
+      },
+      "n_train_rows": 150000,
+      "trees_per_class": 406,
+      "fit_seconds": 35.507699400011916,
+      "masked_accuracy": 0.9964758664624477,
+      "masked_macro_f1": 0.994490291012351,
+      "masked_balanced_accuracy": 0.994770760351367,
+      "log_loss": 0.008768138546496867
+    },
+    {
+      "variant": "max_bin=2048",
+      "change": {
+        "max_bin": 2048
+      },
+      "n_train_rows": 150000,
+      "trees_per_class": 560,
+      "fit_seconds": 63.415001999994274,
+      "masked_accuracy": 0.997560215243233,
+      "masked_macro_f1": 0.9962299541525745,
+      "masked_balanced_accuracy": 0.996299846094096,
+      "log_loss": 0.006596013330469563
+    },
+    {
+      "variant": "max_depth=6",
+      "change": {
+        "max_depth": 6
+      },
+      "n_train_rows": 150000,
+      "trees_per_class": 517,
+      "fit_seconds": 116.47298949997639,
+      "masked_accuracy": 0.9974382260053947,
+      "masked_macro_f1": 0.9958281094584459,
+      "masked_balanced_accuracy": 0.9962027016099206,
+      "log_loss": 0.007362925588221843
+    },
+    {
+      "variant": "max_depth=10",
+      "change": {
+        "max_depth": 10
+      },
+      "n_train_rows": 150000,
+      "trees_per_class": 402,
+      "fit_seconds": 26.980180000013206,
+      "masked_accuracy": 0.9973026824077965,
+      "masked_macro_f1": 0.9961498131982991,
+      "masked_balanced_accuracy": 0.9962819281885945,
+      "log_loss": 0.0071839184767386885
+    },
+    {
+      "variant": "learning_rate=0.05",
+      "change": {
+        "learning_rate": 0.05
+      },
+      "n_train_rows": 150000,
+      "trees_per_class": 824,
+      "fit_seconds": 70.64895140001317,
+      "masked_accuracy": 0.9974246716456349,
+      "masked_macro_f1": 0.9957362210487192,
+      "masked_balanced_accuracy": 0.9961656352433703,
+      "log_loss": 0.007053147220401437
+    },
+    {
+      "variant": "learning_rate=0.2",
+      "change": {
+        "learning_rate": 0.2
+      },
+      "n_train_rows": 150000,
+      "trees_per_class": 228,
+      "fit_seconds": 18.506752500019502,
+      "masked_accuracy": 0.9972755736882768,
+      "masked_macro_f1": 0.9955709142707546,
+      "masked_balanced_accuracy": 0.9959613190659212,
+      "log_loss": 0.0071547225757533865
+    },
+    {
+      "variant": "min_child_weight=5.0",
+      "change": {
+        "min_child_weight": 5.0
+      },
+      "n_train_rows": 150000,
+      "trees_per_class": 866,
+      "fit_seconds": 68.05789270001696,
+      "masked_accuracy": 0.9971400300906786,
+      "masked_macro_f1": 0.9952981323979839,
+      "masked_balanced_accuracy": 0.9957842992635284,
+      "log_loss": 0.007315606178495499
+    },
+    {
+      "variant": "reg_lambda=0.1",
+      "change": {
+        "reg_lambda": 0.1
+      },
+      "n_train_rows": 150000,
+      "trees_per_class": 370,
+      "fit_seconds": 23.067497899988666,
+      "masked_accuracy": 0.9973975629261151,
+      "masked_macro_f1": 0.9960546982833494,
+      "masked_balanced_accuracy": 0.996097943221846,
+      "log_loss": 0.0070992809464179565
+    },
+    {
+      "variant": "reg_lambda=10.0",
+      "change": {
+        "reg_lambda": 10.0
+      },
+      "n_train_rows": 150000,
+      "trees_per_class": 842,
+      "fit_seconds": 51.26316430000588,
+      "masked_accuracy": 0.9971264757309188,
+      "masked_macro_f1": 0.9953960970398515,
+      "masked_balanced_accuracy": 0.9958456552345734,
+      "log_loss": 0.007234759097075044
+    },
+    {
+      "variant": "subsample=0.8",
+      "change": {
+        "subsample": 0.8
+      },
+      "n_train_rows": 150000,
+      "trees_per_class": 439,
+      "fit_seconds": 27.359718600055203,
+      "masked_accuracy": 0.9971806931699582,
+      "masked_macro_f1": 0.9955953412264277,
+      "masked_balanced_accuracy": 0.9959509589884558,
+      "log_loss": 0.007230887977358834
+    },
+    {
+      "variant": "colsample_bytree=0.8",
+      "change": {
+        "colsample_bytree": 0.8
+      },
+      "n_train_rows": 150000,
+      "trees_per_class": 487,
+      "fit_seconds": 25.668110500031617,
+      "masked_accuracy": 0.9972755736882768,
+      "masked_macro_f1": 0.9955748495682151,
+      "masked_balanced_accuracy": 0.9959126602296353,
+      "log_loss": 0.007206534134934835
+    },
+    {
+      "variant": "class_weight_power=0.0",
+      "change": {
+        "class_weight_power": 0.0
+      },
+      "n_train_rows": 150000,
+      "trees_per_class": 529,
+      "fit_seconds": 28.989251099992543,
+      "masked_accuracy": 0.9972349106089974,
+      "masked_macro_f1": 0.9953694554603587,
+      "masked_balanced_accuracy": 0.9947968626244534,
+      "log_loss": 0.007666378595285483
+    },
+    {
+      "variant": "class_weight_power=1.0",
+      "change": {
+        "class_weight_power": 1.0
+      },
+      "n_train_rows": 150000,
+      "trees_per_class": 192,
+      "fit_seconds": 13.032455299980938,
+      "masked_accuracy": 0.9968960516150019,
+      "masked_macro_f1": 0.995726690966077,
+      "masked_balanced_accuracy": 0.9970831722078515,
+      "log_loss": 0.008974321289372436
+    },
+    {
+      "variant": "max_train_rows=None",
+      "change": {
+        "max_train_rows": null
+      },
+      "n_train_rows": 358875,
+      "trees_per_class": 547,
+      "fit_seconds": 60.16159209999023,
+      "masked_accuracy": 0.9980481721945864,
+      "masked_macro_f1": 0.99771598348615,
+      "masked_balanced_accuracy": 0.9978234878803164,
+      "log_loss": 0.004872312175074662
+    }
+  ]
+}
